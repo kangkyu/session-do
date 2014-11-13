@@ -1,0 +1,11 @@
+%h1 Home
+
+= link_to "New Task", new_task_path
+
+%ul
+  - @tasks.each do |task|
+    %li 
+      %strong= task.name
+      has been #{distance_of_time_in_words(task.done_at, 4.days.ago)}
+      %br
+      = task.comment
