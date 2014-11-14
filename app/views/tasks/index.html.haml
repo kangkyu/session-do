@@ -1,13 +1,13 @@
 %h1 Home
 
-= link_to "New Task", new_task_path
+= link_to "New Task", new_task_path, class: 'btn btn-link'
 
-%ul
+%ul.list-group
   - @tasks.each do |task|
-    %li 
-      %strong= task.name
-      = task.comment
-      %br done at #{(task.done_at).strftime("%b %d")}
+    %li.list-group-item
+      %strong.list-group-item-heading= task.name
+      %small.list-group-item-text done at #{(task.done_at).strftime("%b %d")}
+      .list-group-item-text= task.comment
       .progress
         .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => ((Time.now - task.done_at)/1.hour).round, :role => "progressbar", :style => "width: #{((Time.now - task.done_at)/1.hour).round}%;"}
           = distance_of_time_in_words_to_now(task.done_at)
