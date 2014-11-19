@@ -13,6 +13,12 @@ class TasksController < ApplicationController
     redirect_to root_url
   end
 
+  def destroy
+    @task = Task.where(id: params[:id]).take
+    @task.destroy
+    redirect_to root_url
+  end
+
   private
   def task_params
     params.require(:task).permit(:name, :comment, :done_at)

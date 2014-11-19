@@ -1,7 +1,11 @@
-%li.list-group-item
-  %strong.list-group-item-heading= task.name
-  %small.list-group-item-text done at #{(task.done_at).strftime("%b %d")}
-  .list-group-item-text= task.comment
-  .progress
-    .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => time_been(task.done_at), :role => "progressbar", :style => "width: #{time_been(task.done_at)}%;"}
-      = distance_of_time_in_words_to_now(task.done_at)
+.row
+  %p.col-md-11
+    %strong.list-group-item-heading= task.name
+    %small.list-group-item-text done at #{(task.done_at).strftime("%b %d")}
+    %span.list-group-item-text= task.comment
+  %p.col-md-1
+    = link_to 'delete', task, method: :delete, class: 'btn btn-danger'
+
+.progress
+  .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => time_been(task.done_at), :role => "progressbar", :style => "width: #{time_been(task.done_at)}%;"}
+    = distance_of_time_in_words_to_now(task.done_at)

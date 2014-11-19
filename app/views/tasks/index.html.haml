@@ -1,7 +1,5 @@
-%h1.text-center
-  = Time.new
+%h1.text-center= Time.new
 
 = link_to "New Task", new_task_path, class: 'btn btn-link'
 
-%ul.list-group
-  = render @tasks
+= render @tasks
