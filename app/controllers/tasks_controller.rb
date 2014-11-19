@@ -19,6 +19,12 @@ class TasksController < ApplicationController
     redirect_to root_url
   end
 
+  def refresh
+    @task = Task.find(params[:id])
+    @task.update(done_at: Time.now)
+    redirect_to root_url
+  end
+
   private
   def task_params
     params.require(:task).permit(:name, :comment, :done_at)
