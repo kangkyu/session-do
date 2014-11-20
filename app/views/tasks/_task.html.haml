@@ -1,7 +1,7 @@
 .row
   .col-md-10.col-sm-8.col-xs-6
     %p
-      %strong= task.name
+      %strong= link_to task.name, edit_task_path(task)
       %small done at #{(task.done_at).strftime("%b %d")}
       %span= task.comment
   .col-md-1.col-sm-2.col-xs-3
