@@ -1,4 +1,4 @@
-%h1.text-center= Time.new.strftime("%a %b %e %T")
+%h1.text-center= local_time(Time.now, "%a %b %e %T")
 
 %p= link_to "Add a task", new_task_path, class: 'btn btn-link center-block'
 
