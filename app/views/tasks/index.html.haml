@@ -1,5 +1,5 @@
 %h1.text-center= Time.new.strftime("%a %b %e %T")
 
-= link_to "Add a task", new_task_path, class: 'btn btn-link'
+%p= link_to "Add a task", new_task_path, class: 'btn btn-link center-block'
 
 = render @tasks
