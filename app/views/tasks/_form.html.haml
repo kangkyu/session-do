@@ -4,7 +4,7 @@
   .form-group
     = f.text_field :comment, placeholder: "comment", class: 'form-control'
   .form-group
-    = f.date_select :done_at, use_month_numbers: true, class: 'form-control'
+    = f.datetime_select :done_at, default: Time.now, use_month_numbers: true, class: 'form-control'
   - if @task.new_record?
     = f.submit 'Add', class: 'btn btn-default'
   - else
