@@ -5,10 +5,10 @@
       %small done at #{(task.done_at).strftime("%b %d")}
       %span= task.comment
   .col-md-1.col-sm-2.col-xs-3
-    %p= link_to 'refresh', refresh_task_path(task), class: 'btn btn-default'
+    %p= link_to 'reset', refresh_task_path(task), class: 'btn btn-default'
   .col-md-1.col-sm-2.col-xs-3
     %p= link_to 'delete', task, method: :delete, class: 'btn btn-danger'
 
 .progress
-  .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => time_been(task.done_at), :role => "progressbar", :style => "width: #{time_been(task.done_at)}%;"}
-    = distance_of_time_in_words_to_now(task.done_at)
+  .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => task.time_passed_by, :role => "progressbar", :style => "width: #{task.time_passed_by}%;"}
+    = time_ago_in_words(task.done_at)
