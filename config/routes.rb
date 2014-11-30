@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   root to: 'tasks#index'
   get 'tasks/:id/refresh', to: 'tasks#refresh', as: 'refresh_task'
 
-  get 'users/:id', to: 'users#show', as: 'user'
+  resources :users
   get 'register', to: 'users#new'
+
+  resource :session
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
