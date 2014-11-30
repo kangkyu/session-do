@@ -10,5 +10,13 @@
     %p= link_to 'delete', task, method: :delete, class: 'btn btn-danger'
 
 .progress
-  .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => task.time_passed_by, :role => "progressbar", :style => "width: #{task.time_passed_by}%;"}
-    = time_ago_in_words(task.done_at)
+
+  - if task.time_passed_by < 0
+    - bar_length = (- task.time_passed_by)
+    .progress-bar.progress-bar-warning{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => bar_length, :role => "progressbar", :style => "width: #{bar_length}%; display: block; float: right;"}
+      = "- #{distance_of_time_in_words_to_now(task.done_at)}"
+
+  - else
+    - bar_length = task.time_passed_by
+    .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => bar_length, :role => "progressbar", :style => "width: #{bar_length}%; "}
+      = "+ #{time_ago_in_words(task.done_at)}"
