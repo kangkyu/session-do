@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Task.sorted
+    @tasks = Task.reverse
   end
 
   def new
@@ -8,9 +8,12 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.create(task_params)
-    # @task.save
-    redirect_to root_url
+    @task = Task.new(task_params)
+    if @task.save
+      redirect_to root_url
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -31,8 +34,11 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    @task.update(task_params)
-    redirect_to root_url
+    if @task.update(task_params)
+      redirect_to root_url
+    else
+      render :edit
+    end
   end
 
   private
