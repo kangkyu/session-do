@@ -3,8 +3,6 @@
 %p= link_to "Register", register_path, class: 'btn btn-link center-block'
 
 = form_tag session_path, class: 'form-inline' do |f|
-  .form-group.required
-    = text_field_tag :username, nil, placeholder: "username", class: 'form-control'
   .form-group
     = email_field_tag :email, nil, placeholder: "email", class: 'form-control'
   .form-group
