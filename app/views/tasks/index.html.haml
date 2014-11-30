@@ -1,5 +1,7 @@
-%h2.text-center= local_time(Time.now, "%a, %b %e %l:%M%P")
+= render 'layouts/page_title', title: local_time(Time.now, "%a, %b %e %l:%M%P")
 
 %p= link_to "Add a task", new_task_path, class: 'btn btn-link center-block'
 
 = render @tasks
+
+= render 'layouts/page_bottom'

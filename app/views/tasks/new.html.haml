@@ -1,5 +1,7 @@
-%h2.text-center Add task
+= render 'layouts/page_title', title: "Add task"
 
 %p= link_to "Back to tasks", tasks_path, class: 'btn btn-link center-block'
 
 = render 'form'
+
+= render 'layouts/page_bottom'

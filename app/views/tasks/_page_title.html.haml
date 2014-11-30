@@ -1,0 +1,8 @@
+%h2.text-center= title
+%p 
+  - if current_user
+    = current_user.username
+    = link_to 'Log Out', session_path, method: :delete, class: 'btn btn-link'
+  - else
+    = link_to 'Register', register_path, class: 'btn btn-link'
+    = link_to 'Log In', login_path, class: 'btn btn-link'
