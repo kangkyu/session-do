@@ -50,3 +50,4 @@ group :production do
 end
 
 gem 'local_time', '~> 1.0.0'
+gem 'bcrypt-ruby', '~> 3.1.5'
