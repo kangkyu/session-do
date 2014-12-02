@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.password_confirmation = @user.password
+    @user.password_confirmation = user_params[:password]
     if @user.save
       session[:user_id] = @user.id
       redirect_to root_url
