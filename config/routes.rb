@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :users, except: [:destroy, :show, :index]
   get 'register', to: 'users#new'
 
-  resource :session
+  resource :session, except: [:show, :edit, :update]
   get 'login', to: 'sessions#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
