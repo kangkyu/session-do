@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :require_login, only: [:edit, :update]
 
   def edit
     @user = User.find(params[:id])
