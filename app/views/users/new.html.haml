@@ -1,6 +1,7 @@
 = render 'layouts/page_title', title: 'Register'
 
 %p= link_to "Log In", login_path, class: 'btn btn-link center-block'
+%p= link_to "Register", register_path, class: 'btn btn-link center-block'
 
 = form_for @user, class: 'form-inline' do |f|
   .form-group.required

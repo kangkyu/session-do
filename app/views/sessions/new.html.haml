@@ -1,5 +1,6 @@
 = render 'layouts/page_title', title: 'Log In'
 
+%p= link_to "Log In", login_path, class: 'btn btn-link center-block'
 %p= link_to "Register", register_path, class: 'btn btn-link center-block'
 
 = form_tag session_path, class: 'form-inline' do |f|
