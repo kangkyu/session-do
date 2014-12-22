@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'tasks#index'
   get 'tasks/:id/refresh', to: 'tasks#refresh', as: 'refresh_task'
 
-  resources :users
+  resources :users, except: [:destroy, :show, :index]
   get 'register', to: 'users#new'
 
   resource :session
