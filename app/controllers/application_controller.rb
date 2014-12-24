@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def require_login
     unless current_user
-      redirect_to register_url, alert: "Log in, please."
+      redirect_to register_url, alert: "Log in first, please."
     end
   end
 
