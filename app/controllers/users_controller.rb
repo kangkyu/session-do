@@ -1,7 +1,17 @@
 class UsersController < ApplicationController
+  before_action :require_login, only: [:edit, :update]
 
-  def show
+  def edit
     @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to root_url
+    else
+      render :edit
+    end
   end
 
   def new
