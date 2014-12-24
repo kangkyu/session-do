@@ -1,16 +1,6 @@
 = render 'layouts/page_title', title: 'Register'
 
 %p= link_to "Log In", login_path, class: 'btn btn-link center-block'
-%p= link_to "Register", register_path, class: 'btn btn-link center-block'
 
-= form_for @user, class: 'form-inline' do |f|
-  .form-group.required
-    = f.text_field :username, placeholder: "username", class: 'form-control'
-  .form-group
-    = f.email_field :email, placeholder: "email", class: 'form-control'
-  .form-group
-    = f.password_field :password, placeholder: "password", class: 'form-control'
-  - if @user.new_record?
-    = f.submit 'Register', class: 'btn btn-default'
-  - else
-    = f.submit 'Update', class: 'btn btn-default'
+= render 'form'
+

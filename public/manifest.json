@@ -1,0 +1,21 @@
+{
+"manifest_version": 2,
+"name": "Session To Do app",
+"description": "Link to Session To Do website",
+"version": "0.1",
+"icons": {
+  "128": "session-to-do.png"
+},
+"app": {
+"urls": [
+"https://sessions-to-do.herokuapp.com/"
+],
+"launch": {
+"web_url": "https://sessions-to-do.herokuapp.com/"
+}
+},
+"permissions": [
+"unlimitedStorage",
+"notifications"
+]
+}

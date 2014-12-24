@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   root to: 'tasks#index'
   get 'tasks/:id/refresh', to: 'tasks#refresh', as: 'refresh_task'
 
-  resources :users
+  resources :users, except: [:destroy, :show, :index]
   get 'register', to: 'users#new'
 
-  resource :session
+  resource :session, except: [:show, :edit, :update]
   get 'login', to: 'sessions#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
