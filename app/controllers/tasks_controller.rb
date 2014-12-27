@@ -24,7 +24,7 @@ class TasksController < ApplicationController
     redirect_to root_url
   end
 
-  def refresh
+  def clear
     @task = current_user.tasks.find(params[:id])
     @task.update(done_at: Time.now.in_time_zone)
     redirect_to root_url
