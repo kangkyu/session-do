@@ -1,17 +1,18 @@
 {
 "manifest_version": 2,
 "name": "Session To Do app",
+"short_name": "To-Do-Not",
 "description": "Link to Session To Do website",
-"version": "0.1",
+"version": "0.1.1",
 "icons": {
   "128": "session-to-do.png"
 },
 "app": {
 "urls": [
-"https://sessions-to-do.herokuapp.com/"
+"https://to-do-not.herokuapp.com/"
 ],
 "launch": {
-"web_url": "https://sessions-to-do.herokuapp.com/"
+"web_url": "https://to-do-not.herokuapp.com/"
 }
 },
 "permissions": [
