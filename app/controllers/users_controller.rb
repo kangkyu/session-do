@@ -26,6 +26,7 @@ class UsersController < ApplicationController
       redirect_to root_url
       flash[:notice] = "Registration successful"
     else
+      flash.now.alert = "Please try again!"
       render :new
     end
   end

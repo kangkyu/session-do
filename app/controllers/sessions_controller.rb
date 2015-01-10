@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
       redirect_to root_url
       flash[:notice] = "Login successful"
     else
-      flash[:alert] = "Please try again."
-      render :new   # error message instead - later
+      flash.now.alert = "Please try again!"
+      render :new
     end
   end
 
