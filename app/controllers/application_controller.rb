@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def require_login
     unless current_user
-      redirect_to register_url, alert: "Please log in or register"
+      redirect_to register_url, alert: "Please log in or sign up"
     end
   end
 
