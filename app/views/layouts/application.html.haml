@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %title To-Do-Not
+    = favicon_link_tag '/favicon.ico'
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true 
+    = csrf_meta_tags 
+    %link{href:'http://fonts.googleapis.com/css?family=Open+Sans', rel:'stylesheet', type:'text/css'}
+    %meta{name:"viewport", content:"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"}
+  %body
+
+    = content_tag(:div, flash[:notice], class: "alert alert-success", id: "notice") if flash[:notice]
+    = content_tag(:div, flash[:alert], class: "alert alert-warning", id: "alert") if flash[:alert]
+    .container
+      = yield
+
