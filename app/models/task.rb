@@ -3,7 +3,7 @@ class Task < ActiveRecord::Base
   
   validates :name, presence: true
 
-  scope :sorted, ->{ order('done_at desc') }
+  scope :sorted_nested, ->{ order('is_daily desc, done_at desc') }
   scope :reverse, ->{ order('id desc') }
 
   def time_passed_by
