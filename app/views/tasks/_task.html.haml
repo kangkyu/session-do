@@ -1,14 +1,15 @@
 .row
-  .col-md-10.col-sm-8.col-xs-6
+  .col-md-9.col-sm-8.col-xs-7
     %p
       %span.label.label-success= daily_badge(task)
       %strong= link_to task.name, edit_task_path(task)
       %small at #{(task.done_at).strftime("%b %d")}
       %span= task.comment
-  .col-md-1.col-sm-2.col-xs-3
-    %p= link_to 'clear', clear_task_path(task), class: 'btn btn-default'
-  .col-md-1.col-sm-2.col-xs-3
-    %p= link_to 'delete', task, method: :delete, class: 'btn btn-danger'
+  
+  .col-md-3.col-sm-4.col-xs-5
+    %p.text-right
+      = link_to 'clear', clear_task_path(task), class: 'btn btn-default' 
+      \ #{link_to 'delete', task, method: :delete, class: 'btn btn-danger'}
 
 .progress
 
