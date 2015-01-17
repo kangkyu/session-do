@@ -1,7 +1,12 @@
 = render 'layouts/page_title', title: local_time(Time.now, "%a, %b %e %l:%M%P")
 
-%p= link_to "Add a task", new_task_path, class: 'btn btn-link center-block'
-
-= render @tasks
+- if @tasks.empty?
+  .text-center
+    .btn You don't have any tasks.
+    \ #{ link_to "Add one!", new_task_path, class: 'btn btn-link' }  
+- else
+  .text-center
+    = link_to "Add a task", new_task_path, class: 'btn btn-link'
+  = render @tasks
 
 = render 'layouts/page_bottom'
