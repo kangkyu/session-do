@@ -1,9 +1,12 @@
 .row
   .col-md-9.col-sm-8.col-xs-6
-    %p
-      %span.label.label-success= daily_badge(task)
-      %strong= link_to task.name, edit_task_path(task)
-      %small at #{(task.done_at).strftime("%b %d")}
+    %p.text-left
+      %span.badge= daily_badge(task)
+      %strong
+        = link_to task.name, edit_task_path(task)
+      %small
+        at
+        %code #{(task.done_at).strftime("%b %d")}
       %span= task.comment
   
   .col-md-3.col-sm-4.col-xs-6
