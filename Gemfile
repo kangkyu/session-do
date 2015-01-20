@@ -39,6 +39,11 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'haml'
+gem 'haml-rails'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+end
 
 group :development do
   gem 'sqlite3'
