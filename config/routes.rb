@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'welcome/guide'
+
   resources :tasks
   root to: 'tasks#index'
   get 'tasks/:id/clear', to: 'tasks#clear', as: 'clear_task'

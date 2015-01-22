@@ -1,6 +1,8 @@
 = render 'layouts/page_title', title: 'Sign Up'
 
-%p= link_to "Log In", login_path, class: 'btn btn-link center-block'
+.text-center
+  = link_to "Log In", login_path, class: 'btn btn-link'
+  \ #{link_to "first time?", welcome_guide_path, class: 'btn btn-link'}
 
 = render 'form'
 
