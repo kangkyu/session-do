@@ -2,7 +2,11 @@ class TasksController < ApplicationController
   before_action :require_login
 
   def index
-    @tasks = current_user.tasks.sorted_nested
+    @tasks = current_user.tasks.put_off.sorted_by_done_at
+  end
+
+  def index_daily
+    @tasks = current_user.tasks.daily.sorted_by_done_at
   end
 
   def new
@@ -12,7 +16,7 @@ class TasksController < ApplicationController
   def create
     @task = current_user.tasks.new(task_params)
     if @task.save
-      redirect_to root_url
+      redirect_to either_tasks_url(@task)
     else
       render :new
     end
@@ -21,13 +25,13 @@ class TasksController < ApplicationController
   def destroy
     @task = current_user.tasks.where(id: params[:id]).take
     @task.destroy
-    redirect_to root_url
+    redirect_to either_tasks_url(@task)
   end
 
   def clear
     @task = current_user.tasks.find(params[:id])
     @task.update(done_at: Time.now.in_time_zone)
-    redirect_to root_url
+    redirect_to either_tasks_url(@task)
   end
 
   def edit
@@ -37,7 +41,7 @@ class TasksController < ApplicationController
   def update
     @task = current_user.tasks.find(params[:id])
     if @task.update(task_params)
-      redirect_to root_url
+      redirect_to either_tasks_url(@task)
     else
       render :edit
     end
