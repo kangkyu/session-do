@@ -15,11 +15,11 @@ module TasksHelper
   private
 
   def daily_task_name(task)
-    content_tag(:span, task.name, class: ["btn", "btn-daily"], id: 'task-name')
+    content_tag(:span, truncate(task.name), class: ["btn", "btn-daily"], id: 'task-name')
   end
 
   def non_daily_task_name(task)
-    content_tag(:span, task.name, class: ["btn", "btn-non-daily"], id: 'task-name')
+    content_tag(:span, truncate(task.name), class: ["btn", "btn-non-daily"], id: 'task-name')
   end
   
 end
