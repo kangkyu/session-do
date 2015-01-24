@@ -1,14 +1,13 @@
 .row
-  .col-md-9.col-sm-8.col-xs-6
+  .col-md-9.col-sm-8.col-xs-7
     %p.text-left
-      %span.badge= daily_badge(task)
       %strong
-        = link_to task.name, edit_task_path(task)
+        = link_to task_name(task), edit_task_path(task)
       %small
         %code on #{(task.done_at).strftime("%b %d")}
       %span= task.comment
   
-  .col-md-3.col-sm-4.col-xs-6
+  .col-md-3.col-sm-4.col-xs-5
     %p.text-right
       = link_to_daily(task, class:'btn btn-default')
       \ #{link_to icon('check'), clear_task_path(task), class: 'btn btn-default'}

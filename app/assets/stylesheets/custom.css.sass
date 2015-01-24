@@ -1,3 +1,7 @@
+$transparent: rgb(0.0, 0.0, 0.0)
+$success: #5cb85c
+$primary: #337ab7
+
 body
   :font-family 'Open Sans', Helvetica, Arial, sans-serif
 
@@ -6,3 +10,8 @@ body
   border: 0
   border-radius: 0px
 
+.btn-daily
+  @include button-variant($success, white, white)
+
+.btn-non-daily
+  @include button-variant($primary, white, white)

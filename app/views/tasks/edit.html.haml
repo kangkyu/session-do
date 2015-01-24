@@ -1,4 +1,4 @@
-- content_for(:title,'Edit task')
+- content_for(:title, local_time(Time.now, "%a, %b %e %l:%M%P"))
 - content_for(:discard_add_task_link, true)
 
 = render 'layouts/tab_bar', discard_add_task_link: content_for(:discard_add_task_link)
