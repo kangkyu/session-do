@@ -1,12 +1,12 @@
 .row
-  .col-md-8.col-sm-7.col-xs-7
+  .col-md-7.col-sm-7.col-xs-7
     %p.text-left
       = link_to task_name(task), edit_task_path(task)
       %small
         %code on #{(task.done_at).strftime("%b %d")}
       %span= task.comment
   
-  .col-md-4.col-sm-5.col-xs-5
+  .col-md-5.col-sm-5.col-xs-5
     %p.text-right
       - if task.is_daily
         = link_to text_and_icon(' To Non-Dailies', 'arrow-right'), toggle_daily_task_path(task), class:'btn btn-primary'
