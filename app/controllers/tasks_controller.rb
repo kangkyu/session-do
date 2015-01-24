@@ -38,6 +38,16 @@ class TasksController < ApplicationController
     redirect_to either_tasks_url(@task)
   end
 
+  def toggle_daily
+    @task = current_user.tasks.find(params[:id])
+    if @task.is_daily
+      @task.update(is_daily: false)
+    else
+      @task.update(is_daily: true)
+    end
+    redirect_to either_tasks_url(@task)
+  end
+
   def edit
     @task = current_user.tasks.find(params[:id])
   end

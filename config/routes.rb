@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :tasks
   root to: 'tasks#index_daily'
   get 'tasks/:id/clear', to: 'tasks#clear', as: 'clear_task'
+  get 'tasks/:id/toggle_daily', to: 'tasks#toggle_daily', as: 'toggle_daily_task'
 
   resources :users, except: [:destroy, :show, :index]
   get 'register', to: 'users#new'
