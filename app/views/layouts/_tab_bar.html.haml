@@ -1,0 +1,12 @@
+.row
+  .col-md-4.col-sm-4.col-xs-4
+    %p.text-center
+      = link_to "Daily tasks", tasks_index_daily_path, class: 'btn btn-link'
+  .col-md-4.col-sm-4.col-xs-4
+    - if discard_add_task_link
+    - else
+      %p.text-center
+        = link_to "Add a task", new_task_path, class: 'btn btn-link'
+  .col-md-4.col-sm-4.col-xs-4
+    %p.text-center
+      = link_to "Put-offs", tasks_path, class: 'btn btn-link'

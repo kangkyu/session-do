@@ -1,6 +1,6 @@
 - content_for(:title,'Edit user')
+- content_for(:discard_add_task_link, true)
 
-%p.text-center
-  = link_to "Back to tasks", tasks_path, class: 'btn btn-link'
+= render 'layouts/tab_bar', discard_add_task_link: content_for(:discard_add_task_link)
 
 = render 'form'

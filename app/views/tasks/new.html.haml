@@ -1,11 +1,7 @@
 - content_for(:title,'Add task')
+- content_for(:discard_add_task_link, true)
 
-.row
-  .col-md-4.col-sm-3.col-xs-3
-  .col-md-4.col-sm-6.col-xs-6
-    %p.text-center
-      = link_to "Back to tasks", tasks_path, class: 'btn btn-link'
-  .col-md-4.col-sm-3.col-xs-3
+= render 'layouts/tab_bar', discard_add_task_link: content_for(:discard_add_task_link)
 
 = render 'form'
 

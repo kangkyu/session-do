@@ -30,7 +30,11 @@ class TasksController < ApplicationController
 
   def clear
     @task = current_user.tasks.find(params[:id])
-    @task.update(done_at: Time.now.in_time_zone)
+    if @task.is_daily
+      @task.update(done_at: 1.day.from_now.in_time_zone)
+    else
+      @task.update(done_at: Time.now.in_time_zone)
+    end
     redirect_to either_tasks_url(@task)
   end
 
