@@ -6,9 +6,9 @@ module TasksHelper
 
   def link_to_daily(task, options={})
     if task.is_daily
-      link_to("not daily", toggle_daily_task_path(task), {class:'btn btn-info btn-xs'})
+      link_to icon('arrow-right'), toggle_daily_task_path(task), class:'btn btn-info'
     else
-      link_to("daily now", toggle_daily_task_path(task), {class:'btn btn-success btn-xs'})
+      link_to icon('arrow-left'), toggle_daily_task_path(task), class:'btn btn-success'
     end
   end
 end
