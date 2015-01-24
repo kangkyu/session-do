@@ -1,8 +1,7 @@
-= render 'layouts/page_title', title: "Edit task"
+- content_for(:title,'Edit task')
 
-.text-center
+%p.text-center
   = link_to "Back to tasks", tasks_path, class: 'btn btn-link'
 
 = render 'form'
 
-= render 'layouts/page_bottom'

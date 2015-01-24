@@ -1,8 +1,13 @@
-= render 'layouts/page_title', title: 'Sign Up'
+- content_for(:title,'Sign Up')
 
-.text-center
-  = link_to "Log In", login_path, class: 'btn btn-link'
-  \ #{link_to "first time?", welcome_guide_path, class: 'btn btn-link'}
+.row
+  .col-md-4.col-sm-3.col-xs-3
+  .col-md-4.col-sm-6.col-xs-6
+    %p.text-center
+      = link_to "Log In", login_path, class: 'btn btn-link'
+  .col-md-4.col-sm-3.col-xs-3
+    %p.text-right
+      = link_to "First time?", welcome_guide_path, class: 'btn btn-link'
 
 = render 'form'
 

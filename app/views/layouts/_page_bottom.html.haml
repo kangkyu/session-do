@@ -1,8 +1,4 @@
-%p 
-  - if current_user
-    .text-center
-      = link_to "#{current_user.username.capitalize}", edit_user_path(current_user), class: 'btn btn-link'
-      \- #{link_to "Log Out", session_path, method: :delete, class: 'btn btn-link'}
-  - else
-    .text-center
-      = link_to 'Sign Up', register_path, class: 'btn btn-link'
+- if current_user
+  %p.text-center
+    = link_to "#{current_user.username.capitalize}", edit_user_path(current_user), class: 'btn btn-link'
+    \- #{link_to "Log Out", session_path, method: :delete, class: 'btn btn-link'}

@@ -1,8 +1,9 @@
-= render 'layouts/page_title', title: "Welcome"
+- content_for(:title,'Welcome')
 
-.text-center
-  %p 
-    future location of How to use page. 
-    %br Coming soon
 
-= render 'layouts/page_bottom'
+%p.text-center
+  future location of How to use page.
+  %br Coming soon
+
+%p.text-center
+  = link_to 'back to Sign Up', register_path, class: 'btn btn-default'

@@ -1,7 +1,11 @@
-= render 'layouts/page_title', title: 'Log In'
+- content_for(:title,'Log In')
 
-.text-center
-  = link_to "Sign Up", register_path, class: 'btn btn-link'
+.row
+  .col-md-4.col-sm-3.col-xs-3
+  .col-md-4.col-sm-6.col-xs-6
+    %p.text-center
+      = link_to "Sign Up", register_path, class: 'btn btn-link'
+  .col-md-4.col-sm-3.col-xs-3
 
 = form_tag session_path, class: 'form-group' do |f|
   .form-group
@@ -9,4 +13,4 @@
   .form-group
     = password_field_tag :password, nil, placeholder: "password", class: 'form-control'
   .text-center
-    = submit_tag 'Log In', class: 'btn btn-default'
+    = submit_tag 'Log In', class: 'btn btn-primary'
