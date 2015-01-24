@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'tasks/index_daily', to: 'tasks#index_daily'
   resources :tasks
-  root to: 'tasks#index'
+  root to: 'tasks#index_daily'
   get 'tasks/:id/clear', to: 'tasks#clear', as: 'clear_task'
 
   resources :users, except: [:destroy, :show, :index]
