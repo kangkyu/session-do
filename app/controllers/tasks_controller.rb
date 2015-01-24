@@ -31,7 +31,7 @@ class TasksController < ApplicationController
   def clear
     @task = current_user.tasks.find(params[:id])
     if @task.is_daily
-      @task.update(done_at: 1.day.from_now.in_time_zone)
+      @task.update(done_at: Date.today + 1)
     else
       @task.update(done_at: Time.now.in_time_zone)
     end
