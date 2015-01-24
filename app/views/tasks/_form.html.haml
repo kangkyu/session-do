@@ -3,7 +3,7 @@
     %p
       = f.label 'done or supposed to be done on'
       %br
-      = f.date_select :done_at, default: Time.now.in_time_zone, class: 'form-control'
+      = f.datetime_select :done_at, default: Time.now.in_time_zone, ampm: true, class: 'form-control'
   .form-group.required
     = f.text_field :name, placeholder: "name of task (necessary)", class: 'form-control'
   .form-group

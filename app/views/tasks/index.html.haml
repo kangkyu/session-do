@@ -1,9 +1,18 @@
 - content_for(:title, local_time(Time.now, "%a, %b %e %l:%M%P"))
 
 - if @tasks.empty?
-  %p.text-center
-    .btn You don't have any tasks.
-    \ #{ link_to "Add one!", new_task_path, class: 'btn btn-link' }  
+  .row
+    .col-md-4.col-sm-3.col-xs-2
+    .col-md-4.col-sm-6.col-xs-8
+      %p.text-center
+        = link_to "Add one!", new_task_path, class: 'btn btn-link'
+    .col-md-4.col-sm-3.col-xs-3
+  .row
+    .col-md-4.col-sm-3.col-xs-1
+    .col-md-4.col-sm-6.col-xs-10
+      %p.text-center
+        You don't have any tasks.
+    .col-md-4.col-sm-3.col-xs-1
 - else
   %p.text-center
     = link_to "Add a task", new_task_path, class: 'btn btn-link'
