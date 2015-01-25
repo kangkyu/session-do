@@ -1,12 +1,15 @@
 .row
   .col-md-4.col-sm-4.col-xs-4
-    %p.text-center
-      = link_to "Dailies", tasks_index_daily_path, class: 'btn btn-link'
+    - unless discard_dailies
+      %p.text-left
+        = link_to text_and_icon(' Dailies', 'arrow-left'), tasks_index_daily_path, class:'btn btn-daily'
+
   .col-md-4.col-sm-4.col-xs-4
-    - if discard_add_task_link
-    - else
+    - unless discard_link_middle
       %p.text-center
         = link_to "Add a task", new_task_path, class: 'btn btn-link'
+
   .col-md-4.col-sm-4.col-xs-4
-    %p.text-center
-      = link_to "Non-dailies", tasks_path, class: 'btn btn-link'
+    - unless discard_non_dailies
+      %p.text-right
+        = link_to text_and_icon(' Non-Dailies', 'arrow-right'), tasks_path, class:'btn btn-non-daily'
