@@ -1,17 +1,16 @@
 = form_for @task, class: 'form-inline' do |f|
   .form-group
     %p
-      = f.label 'done or supposed to be done on'
-      %br
       = f.datetime_select :done_at, default: Time.now.in_time_zone, ampm: true, use_month_numbers: true, discard_minute: true, class: 'form-control'
+      / = f.label 'To Do Time Point'
   .form-group.required
     = f.text_field :name, placeholder: "name of task (necessary)", class: 'form-control'
   .form-group
     = f.text_field :comment, placeholder: "comment", class: 'form-control'
   .form-group
-    = f.check_box :is_daily
-    = f.label :is_daily, 'daily (show on the list of daily tasks)'
+    = f.check_box :is_daily, checked: true
+    = f.label :is_daily, 'daily (show on Dailies)'
   - if @task.new_record?
     = f.submit 'Add', class: 'btn btn-default'
   - else
-    = f.submit 'Save', class: 'btn btn-default'
+    = f.submit 'Update', class: 'btn btn-default'

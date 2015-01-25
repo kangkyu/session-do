@@ -1,18 +1,19 @@
 .row
-  .col-md-9.col-sm-8.col-xs-6
+  .col-md-6.col-sm-7.col-xs-6
     %p.text-left
-      %span.badge= daily_badge(task)
-      %strong
-        = link_to task.name, edit_task_path(task)
+      = link_to task_name(task), edit_task_path(task)
       %small
         %code on #{(task.done_at).strftime("%b %d")}
-      %span= task.comment
+      %span{style:"margin-left: 2px;"}= task.comment
   
-  .col-md-3.col-sm-4.col-xs-6
+  .col-md-6.col-sm-5.col-xs-6
     %p.text-right
-      = link_to_daily(task, class:'btn btn-default')
-      \ #{link_to icon('check'), clear_task_path(task), class: 'btn btn-default'}
-      \ #{link_to icon('trash'), task, method: :delete, class: 'btn btn-danger'}
+      - if task.is_daily
+        = link_to text_and_icon(' To Non-Dailies', 'arrow-right'), toggle_daily_task_path(task), class:'btn btn-primary'
+      - else
+        = link_to text_and_icon(' To Dailies', 'arrow-left'), toggle_daily_task_path(task), class:'btn btn-success'
+      \ #{link_to text_and_icon(' Clear', 'check'), clear_task_path(task), class: 'btn btn-default'}
+      \ #{link_to text_and_icon(' Delete', 'trash'), task, method: :delete, class: 'btn btn-danger'}
 
 .progress
 

@@ -1,7 +1,11 @@
-- content_for(:title,'Edit task')
-- content_for(:discard_add_task_link, true)
+- content_for(:title, local_time(Time.now, "%a, %b %e %l:%M%P"))
 
-= render 'layouts/tab_bar', discard_add_task_link: content_for(:discard_add_task_link)
+- content_for(:discard_dailies, false)
+- content_for(:discard_link_middle, false)
+- content_for(:discard_non_dailies, false)
+
+= render 'layouts/tab_bar', discard_dailies: content_for(:discard_dailies), discard_link_middle: content_for(:discard_link_middle), discard_non_dailies: content_for(:discard_non_dailies)
 
 = render 'form'
+
 
