@@ -1,17 +1,16 @@
 - content_for(:title,'Dailies')
-
 - content_for(:discard_dailies, true)
-- content_for(:discard_link_middle, false)
-- content_for(:discard_non_dailies, false)
+/ - content_for(:discard_non_dailies, false)
+
+- content_for(:discard_link_middle, @tasks.empty?)
+
+= render 'layouts/tab_bar', discard_dailies: content_for(:discard_dailies), discard_link_middle: content_for(:discard_link_middle), discard_non_dailies: content_for(:discard_non_dailies)
 
 - if @tasks.empty?
   .row
     .col-md-12.col-sm-12.col-xs-12
       %p.text-center
         You don't have any tasks.#{link_to "Add one!", new_task_path, class: 'btn btn-link'}
-
 - else
-  = render 'layouts/tab_bar', discard_dailies: content_for(:discard_dailies), discard_link_middle: content_for(:discard_link_middle), discard_non_dailies: content_for(:discard_non_dailies)
-
   = render @tasks
 
