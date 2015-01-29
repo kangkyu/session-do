@@ -1,4 +1,4 @@
-- content_for(:title, local_time(Time.now, "%a, %b %e %l:%M%P"))
+%h2.text-center= local_time(Time.now, "%a, %b %e %l:%M%P")
 
 - content_for(:discard_dailies, false)
 - content_for(:discard_link_middle, true)

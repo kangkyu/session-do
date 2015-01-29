@@ -24,5 +24,9 @@
 
   - else
     - bar_length = task.time_passed_by
-    .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => bar_length, :role => "progressbar", :style => "width: #{bar_length}%; "}
-      = "#{time_ago_in_words(task.done_at)} ago"
+    - if task.is_daily
+      .progress-bar.progress-bar-success{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => bar_length, :role => "progressbar", :style => "width: #{bar_length}%;"}
+        = "#{time_ago_in_words(task.done_at)} ago"
+    - else
+      .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => bar_length, :role => "progressbar", :style => "width: #{bar_length}%;"}
+        = "#{time_ago_in_words(task.done_at)} ago"
