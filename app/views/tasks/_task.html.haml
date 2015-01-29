@@ -9,24 +9,12 @@
   .col-md-6.col-sm-5.col-xs-6
     %p.text-right
       - if task.is_daily
-        = link_to text_and_icon(' To Non-Dailies', 'arrow-right'), toggle_daily_task_path(task), class:'btn btn-primary'
+        = link_to text_and_icon('To Non-Dailies', 'arrow-right'), toggle_daily_task_path(task), class:'btn btn-primary'
       - else
-        = link_to text_and_icon(' To Dailies', 'arrow-left'), toggle_daily_task_path(task), class:'btn btn-success'
-      \ #{link_to text_and_icon(' Clear', 'check'), clear_task_path(task), class: 'btn btn-default'}
-      \ #{link_to text_and_icon(' Delete', 'trash'), task, method: :delete, class: 'btn btn-danger'}
+        = link_to text_and_icon('To Dailies', 'arrow-left', false), toggle_daily_task_path(task), class:'btn btn-success'
+      \ #{link_to text_and_icon('Clear', 'check'), clear_task_path(task), class: 'btn btn-default'}
+      \ #{link_to text_and_icon('Delete', 'trash'), task, method: :delete, class: 'btn btn-danger'}
 
 .progress
+  = progress_bar_tag(task)
 
-  - if task.time_passed_by < 0
-    - bar_length = (- task.time_passed_by)
-    .progress-bar.progress-bar-warning{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => bar_length, :role => "progressbar", :style => "width: #{bar_length}%; display: block; float: right;"}
-      = "#{distance_of_time_in_words_to_now(task.done_at)} later"
-
-  - else
-    - bar_length = task.time_passed_by
-    - if task.is_daily
-      .progress-bar.progress-bar-success{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => bar_length, :role => "progressbar", :style => "width: #{bar_length}%;"}
-        = "#{time_ago_in_words(task.done_at)} ago"
-    - else
-      .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => bar_length, :role => "progressbar", :style => "width: #{bar_length}%;"}
-        = "#{time_ago_in_words(task.done_at)} ago"

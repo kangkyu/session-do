@@ -1,0 +1,42 @@
+$transparent: rgb(0.0, 0.0, 0.0)
+$success: #5cb85c
+$primary: #337ab7
+
+body
+  :font-family 'Open Sans', Helvetica, Arial, sans-serif
+
+.badge
+  background-color: #5cb85c
+  border: 0
+  border-radius: 0px
+
+.btn-daily, .title-daily
+  @include button-variant($success, white, white)
+
+.btn-non-daily, .title-non-daily
+  @include button-variant($primary, white, white)
+
+.btn#task-name
+  font-weight: bold !important
+  padding: 0
+
+.btn.btn-link
+  text-decoration: none
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px)
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px)
+
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px)
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px)
+  .text-remover
+    display: none
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px)

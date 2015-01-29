@@ -2,24 +2,40 @@ module TasksHelper
 
   def task_name(task)
     if task.is_daily
-      daily_task_name(task)
+      content_tag(:span, truncate(task.name), class: ["btn", "btn-daily"], id: 'task-name')
     else
-      non_daily_task_name(task)
+      content_tag(:span, truncate(task.name), class: ["btn", "btn-non-daily"], id: 'task-name')
     end
   end
 
-  def text_and_icon(text, icon_name)
-     content_tag(:i, content_tag(:span, text, class: "text-remover"), class: ["fa", "fa-" + icon_name])
+  def text_and_icon(text, icon_name, right = true)
+     # content_tag(:i, content_tag(:span, text, class: "text-remover"), class: ["fa", "fa-" + icon_name])
+     fa_icon(icon_name, text: content_tag(:span, text, class: "text-remover"), right: right)
   end
 
-  private
-
-  def daily_task_name(task)
-    content_tag(:span, truncate(task.name), class: ["btn", "btn-daily"], id: 'task-name')
+  def progress_bar_class(task)
+    if task.is_daily
+      "progress-bar-success"
+    else
+      "progress-bar-primary"
+    end
   end
 
-  def non_daily_task_name(task)
-    content_tag(:span, truncate(task.name), class: ["btn", "btn-non-daily"], id: 'task-name')
+  def progress_bar_tag(task)
+
+    if task.time_passed_by < 0
+      content_tag(:div, 
+        distance_of_time_in_words_to_now(task.done_at).concat(" later"), 
+        "aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => task.bar_length, :role => "progressbar", 
+        :style => "width: #{task.bar_length}%; display: block; float: right;",
+        class: ["progress-bar", "progress-bar-warning"])
+    else
+      content_tag(:div, 
+        distance_of_time_in_words_to_now(task.done_at).concat(" ago"), 
+        "aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => task.bar_length, :role => "progressbar", 
+        :style => "width: #{task.bar_length}%;",
+        class: ["progress-bar", progress_bar_class(task)])
+    end
   end
-  
+
 end
