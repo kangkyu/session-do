@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'welcome/guide'
 
-  get 'tasks/index_daily', to: 'tasks#index_daily'
+  get 'daily_tasks', to: 'tasks#index_daily', as: 'daily_tasks'
   resources :tasks
   root to: 'tasks#index_daily'
   get 'tasks/:id/clear', to: 'tasks#clear', as: 'clear_task'

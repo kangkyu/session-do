@@ -8,12 +8,12 @@
 
     - unless discard_dailies || discard_non_dailies
       %p.text-center
-        = link_to text_and_icon('Back', 'arrow-left', false), tasks_index_daily_path, class:'btn btn-daily'
+        = link_to text_and_icon('Back', 'arrow-left', false), daily_tasks_path, class:'btn btn-daily'
 
     - else
       - unless discard_dailies
         %p.text-center
-          = link_to text_and_icon('Dailies', 'arrow-left', false), tasks_index_daily_path, class:'btn btn-daily'
+          = link_to text_and_icon('Dailies', 'arrow-left', false), daily_tasks_path, class:'btn btn-daily'
 
       - unless discard_non_dailies
         %p.text-center

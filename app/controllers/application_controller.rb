@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
 
   def either_tasks_url(task)
     if task.is_daily
-      tasks_index_daily_url
+      daily_tasks_url
     else
       tasks_url
     end

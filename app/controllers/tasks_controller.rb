@@ -42,10 +42,11 @@ class TasksController < ApplicationController
     @task = current_user.tasks.find(params[:id])
     if @task.is_daily
       @task.update(is_daily: false)
+      redirect_to daily_tasks_url
     else
       @task.update(is_daily: true)
+      redirect_to tasks_url
     end
-    redirect_to either_tasks_url(@task)
   end
 
   def edit
