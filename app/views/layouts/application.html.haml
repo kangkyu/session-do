@@ -21,12 +21,6 @@
           = content_tag(:span, escape_once("&times;"), "aria-hidden"=> "true")
           = content_tag(:span, "Close", class: "sr-only")
         = flash[:alert]
-    - if flash[:error]
-      = content_tag(:div, class: ["alert", "alert-warning", "alert-dismissible"], role: "alert", id: "error") do
-        = content_tag(:button, class: "close", type: "button", "data-dismiss"=> "alert") do
-          = content_tag(:span, escape_once("&times;"), "aria-hidden"=> "true")
-          = content_tag(:span, "Close", class: "sr-only")
-        = flash[:error]
 
     .container
       = render 'layouts/page_title', title: content_for(:title)

@@ -1,4 +1,15 @@
 = form_for @user, class: 'form-inline' do |f|
+
+  / - if @user.errors.any?
+  /   = content_tag(:div, class: ["alert", "alert-danger", "alert-dismissible"], role: "alert", id: "error-explanation") do
+  /     = content_tag(:button, class: "close", type: "button", "data-dismiss"=> "alert") do
+  /       = content_tag(:span, escape_once("&times;"), "aria-hidden"=> "true")
+  /       = content_tag(:span, "Close", class: "sr-only")
+  /     %p= pluralize(@user.errors.count, "error") + " prohibited this user from being saved"
+  /     %ul
+  /       - @user.errors.full_messages.each do |msg|
+  /         %li= msg
+
   .form-group.required
     = f.text_field :username, placeholder: "username", class: 'form-control'
   .form-group
