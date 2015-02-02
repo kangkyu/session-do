@@ -25,16 +25,20 @@ module TasksHelper
 
     if task.time_passed_by < 0
       content_tag(:div, 
-        distance_of_time_in_words_to_now(task.done_at).concat(" later"), 
-        "aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => task.bar_length, :role => "progressbar", 
-        :style => "width: #{task.bar_length}%; display: block; float: right;",
-        class: ["progress-bar", "progress-bar-warning"])
+        "aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => task.bar_length,
+        :role => "progressbar", :style => "width: #{task.bar_length}%; display: block; float: right;",
+        class: ["progress-bar", "progress-bar-warning"]) do
+          content_tag(:span,
+            distance_of_time_in_words_to_now(task.done_at).concat(" later"))
+      end
     else
-      content_tag(:div, 
-        distance_of_time_in_words_to_now(task.done_at).concat(" ago"), 
-        "aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => task.bar_length, :role => "progressbar", 
-        :style => "width: #{task.bar_length}%;",
-        class: ["progress-bar", progress_bar_class(task)])
+      content_tag(:div,
+        "aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => task.bar_length,
+        :role => "progressbar", :style => "width: #{task.bar_length}%;",
+        class: ["progress-bar", progress_bar_class(task)]) do
+          content_tag(:span,
+            distance_of_time_in_words_to_now(task.done_at).concat(" ago"))
+      end
     end
   end
 
