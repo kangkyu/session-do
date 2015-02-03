@@ -8,7 +8,7 @@ module TasksHelper
     end
   end
 
-  def text_and_icon(text, icon_name, right = true)
+  def text_and_icon(icon_name, text, right = true)
      # content_tag(:i, content_tag(:span, text, class: "text-remover"), class: ["fa", "fa-" + icon_name])
      fa_icon(icon_name, text: content_tag(:span, text, class: "text-remover"), right: right)
   end

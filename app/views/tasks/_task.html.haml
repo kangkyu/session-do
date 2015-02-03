@@ -9,11 +9,11 @@
   .col-md-6.col-sm-5.col-xs-6
     %p.text-right
       - if task.is_daily
-        = link_to text_and_icon('To Non-Dailies', 'arrow-right'), toggle_daily_task_path(task), class:'btn btn-primary'
+        = link_to text_and_icon('arrow-right', 'To Non-Dailies'), toggle_daily_task_path(task), class:'btn btn-primary'
       - else
-        = link_to text_and_icon('To Dailies', 'arrow-left', false), toggle_daily_task_path(task), class:'btn btn-success'
-      \ #{link_to text_and_icon('Clear', 'check'), clear_task_path(task), class: 'btn btn-default'}
-      \ #{link_to text_and_icon('Delete', 'trash'), task, method: :delete, class: 'btn btn-danger'}
+        = link_to text_and_icon('arrow-left', 'To Dailies', false), toggle_daily_task_path(task), class:'btn btn-success'
+      \ #{link_to text_and_icon('check', 'Clear'), clear_task_path(task), class: 'btn btn-default'}
+      \ #{link_to text_and_icon('trash', 'Delete'), task, method: :delete, class: 'btn btn-danger'}
 
 .progress
   = progress_bar_tag(task)
