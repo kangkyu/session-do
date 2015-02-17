@@ -9,20 +9,8 @@
     %meta{name:"viewport", content:"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"}
 
   %body
-    - if flash[:notice]
-      = content_tag(:div, class: ["alert", "alert-info", "alert-dismissible"], role: "alert", id: "notice") do
-        = content_tag(:button, class: "close", type: "button", "data-dismiss"=> "alert") do
-          = content_tag(:span, escape_once("&times;"), "aria-hidden"=> "true")
-          = content_tag(:span, "Close", class: "sr-only")
-        = flash[:notice]
-    - if flash[:alert]
-      = content_tag(:div, class: ["alert", "alert-warning", "alert-dismissible"], role: "alert", id: "alert") do
-        = content_tag(:button, class: "close", type: "button", "data-dismiss"=> "alert") do
-          = content_tag(:span, escape_once("&times;"), "aria-hidden"=> "true")
-          = content_tag(:span, "Close", class: "sr-only")
-        = flash[:alert]
+    = render 'layouts/page_top', flash: flash
 
     .container
-      = render 'layouts/page_title', title: content_for(:title)
       = yield
       = render 'layouts/page_bottom'
