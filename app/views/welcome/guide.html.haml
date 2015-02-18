@@ -1,8 +1,108 @@
-%h2.text-center Welcome
-
-%p.text-center
-  future location of How to use page.
-  %br Coming soon
+%h2.text-center.title-non-daily Non-Dailies
+.row
+  .col-md-4.col-sm-4.col-xs-4
+  .col-md-4.col-sm-4.col-xs-4
+    %p.text-center
+      %a.btn.btn-daily{}
+        %i.fa.fa-arrow-left
+        Dailies
+  .col-md-4.col-sm-4.col-xs-4
+    %p.text-right
+      %a.btn.btn-link{}
+        %span.text-remover Add Task
+        %i.fa.fa-plus
+.row
+  .col-md-6.col-sm-7.col-xs-6
+    %p.text-left
+      %a{}
+        %span#task-name.btn.btn-non-daily walk
+      %small
+        %code on Feb 25
+      %span{:style => "margin-left: 2px;"}
+  .col-md-6.col-sm-5.col-xs-6
+    %p.text-right
+      %a.btn.btn-success{}
+        %i.fa.fa-arrow-left
+        %span.text-remover To Dailies
+      %a.btn.btn-default{}
+        %span.text-remover Clear
+        %i.fa.fa-check
+      %a.btn.btn-danger{}
+        %span.text-remover Delete
+        %i.fa.fa-trash
+.progress
+  .progress-bar.progress-bar-warning{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "83", :role => "progressbar", :style => "width: 83%; float: right;"}
+  .text-center
+    %span.bar-text-color-white 7 days later
+.row
+  .col-md-6.col-sm-7.col-xs-6
+    %p.text-left
+      %a{}
+        %span#task-name.btn.btn-non-daily daily task
+      %small
+        %code on Feb 15
+      %span{:style => "margin-left: 2px;"}
+  .col-md-6.col-sm-5.col-xs-6
+    %p.text-right
+      %a.btn.btn-success{}
+        %i.fa.fa-arrow-left
+        %span.text-remover To Dailies
+      %a.btn.btn-default{}
+        %span.text-remover Clear
+        %i.fa.fa-check
+      %a.btn.btn-danger{}
+        %span.text-remover Delete
+        %i.fa.fa-trash
+.progress
+  .progress-bar.progress-bar-primary{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "35", :role => "progressbar", :style => "width: 35%;"}
+    %span 3 days ago
+  .text-center
+.row
+  .col-md-6.col-sm-7.col-xs-6
+    %p.text-left
+      %a{}
+        %span#task-name.btn.btn-non-daily another task!
+      %small
+        %code on Feb 12
+      %span{:style => "margin-left: 2px;"}
+  .col-md-6.col-sm-5.col-xs-6
+    %p.text-right
+      %a.btn.btn-success{}
+        %i.fa.fa-arrow-left
+        %span.text-remover To Dailies
+      %a.btn.btn-default{}
+        %span.text-remover Clear
+        %i.fa.fa-check
+      %a.btn.btn-danger{}
+        %span.text-remover Delete
+        %i.fa.fa-trash
+.progress
+  .progress-bar.progress-bar-primary{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "79", :role => "progressbar", :style => "width: 79%;"}
+    %span 7 days ago
+  .text-center
+.row
+  .col-md-6.col-sm-7.col-xs-6
+    %p.text-left
+      %a{}
+        %span#task-name.btn.btn-non-daily drink water
+      %small
+        %code on Jan 23
+      %span{:style => "margin-left: 2px;"}
+  .col-md-6.col-sm-5.col-xs-6
+    %p.text-right
+      %a.btn.btn-success{}
+        %i.fa.fa-arrow-left
+        %span.text-remover To Dailies
+      %a.btn.btn-default{}
+        %span.text-remover Clear
+        %i.fa.fa-check
+      %a.btn.btn-danger{}
+        %span.text-remover Delete
+        %i.fa.fa-trash
+.progress
+  .progress-bar.progress-bar-primary{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "308", :role => "progressbar", :style => "width: 308%;"}
+    %span 26 days ago
+  .text-center
 
 %p.text-center
   = link_to 'back to Sign Up', register_path, class: 'btn btn-default'
