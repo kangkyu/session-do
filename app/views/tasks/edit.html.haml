@@ -1,9 +1,7 @@
 %h2.text-center= local_time(Time.now, "%a, %b %e %l:%M%P")
 
-- content_for(:discard_dailies, false)
-- content_for(:discard_link_middle, false)
-- content_for(:discard_non_dailies, false)
+- content_for(:discard_tasks, false)
+- content_for(:discard_link_middle, true)
 
-= render 'layouts/tab_bar', discard_dailies: content_for(:discard_dailies), discard_link_middle: content_for(:discard_link_middle), discard_non_dailies: content_for(:discard_non_dailies)
-
+= render 'layouts/tab_bar', discard_tasks: content_for(:discard_tasks), discard_link_middle: content_for(:discard_link_middle)
 = render 'form'

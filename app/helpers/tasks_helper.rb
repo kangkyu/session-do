@@ -9,16 +9,7 @@ module TasksHelper
   end
 
   def text_and_icon(icon_name, text, right = true)
-     # content_tag(:i, content_tag(:span, text, class: "text-remover"), class: ["fa", "fa-" + icon_name])
      fa_icon(icon_name, text: content_tag(:span, text, class: "text-remover"), right: right)
-  end
-
-  def progress_bar_class(task)
-    if task.is_daily
-      "progress-bar-success"
-    else
-      "progress-bar-primary"
-    end
   end
 
   def progress_bar_tag(task)
@@ -32,7 +23,7 @@ module TasksHelper
       content_tag(:div,
         "aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => task.bar_length,
         :role => "progressbar", :style => "width: #{task.bar_length}%;",
-        class: ["progress-bar", progress_bar_class(task)]) do
+        class: ["progress-bar", "progress-bar-primary"]) do
           content_tag(:span, distance_of_time_in_words_to_now(task.done_at).concat(" ago"))
       end
     end

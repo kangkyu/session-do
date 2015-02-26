@@ -1,22 +1,10 @@
 .row
   .col-md-4.col-sm-4.col-xs-4
-
   .col-md-4.col-sm-4.col-xs-4
-
-    - unless discard_dailies || discard_non_dailies
+    - unless discard_tasks
       %p.text-center
-        = link_to fa_icon('arrow-left', text: 'Back', right: false), daily_tasks_path, class:'btn btn-daily'
-
-    - else
-      - unless discard_dailies
-        %p.text-center
-          = link_to fa_icon('arrow-left', text: 'Dailies', right: false), daily_tasks_path, class:'btn btn-daily'
-
-      - unless discard_non_dailies
-        %p.text-center
-          = link_to fa_icon('arrow-right', text: 'Non-Dailies'), tasks_path, class:'btn btn-non-daily'
-
-  .col-md-4.col-sm-4.col-xs-4
+        = link_to fa_icon('arrow-left', text: 'Back', right: false), tasks_path, class:'btn btn-daily'
     - unless discard_link_middle
-      %p.text-right
-        = link_to text_and_icon('plus', "Add Task"), new_task_path, class: 'btn btn-link'
+      %p.text-center
+        = link_to text_and_icon('plus', "Add Task", false), new_task_path, class: 'btn btn-link'
+  .col-md-4.col-sm-4.col-xs-4

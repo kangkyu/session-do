@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
   get 'welcome/guide'
 
-  get 'daily_tasks', to: 'tasks#index_daily', as: 'daily_tasks'
   resources :tasks
-  root to: 'tasks#index_daily'
+  root to: 'tasks#index'
   get 'tasks/:id/clear', to: 'tasks#clear', as: 'clear_task'
-  get 'tasks/:id/toggle_daily', to: 'tasks#toggle_daily', as: 'toggle_daily_task'
 
   resources :users, except: [:destroy, :show, :index]
   get 'register', to: 'users#new'

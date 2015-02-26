@@ -5,14 +5,9 @@
       %small
         %code on #{(task.done_at).strftime("%b %d")}
       %span{style:"margin-left: 2px;"}= task.comment
-  
   .col-md-6.col-sm-5.col-xs-6
     %p.text-right
-      - if task.is_daily
-        = link_to text_and_icon('arrow-right', 'To Non-Dailies'), toggle_daily_task_path(task), class:'btn btn-primary'
-      - else
-        = link_to text_and_icon('arrow-left', 'To Dailies', false), toggle_daily_task_path(task), class:'btn btn-success'
-      \ #{link_to text_and_icon('check', 'Clear'), clear_task_path(task), class: 'btn btn-default'}
+      = link_to text_and_icon('check', 'Clear'), clear_task_path(task), class: 'btn btn-default'
       \ #{link_to text_and_icon('trash', 'Delete'), task, method: :delete, class: 'btn btn-danger'}
 
 .progress
