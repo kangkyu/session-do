@@ -1,8 +1,8 @@
 
 - if flash
   - flash.keys.each do |key|
-    = content_tag(:div, class: ["alert", (key == "notice" ? "alert-info" : key == "alert" ? "alert-warning" : "alert-default"), "alert-dismissible"], role: "alert", id: key) do
+    = content_tag(:div, class: ["alert", class_name_by_key(key), "alert-dismissible"], role: "alert", id: key) do
       = content_tag(:button, class: "close", type: "button", "data-dismiss"=> "alert") do
-        = content_tag(:span, escape_once("&times;"), "aria-hidden"=> "true")
+        = content_tag(:span, fa_icon('times'), "aria-hidden"=> "true")
         = content_tag(:span, "Close", class: "sr-only")
       = flash[key]

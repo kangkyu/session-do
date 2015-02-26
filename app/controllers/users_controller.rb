@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to root_url, notice: "Update successful"
     else
+      flash.now.alert = "Please try again!"
       render :edit
     end
   end
