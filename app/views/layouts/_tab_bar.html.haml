@@ -6,5 +6,5 @@
         = link_to fa_icon('arrow-left', text: 'Back', right: false), tasks_path, class:'btn btn-daily'
     - unless discard_link_middle
       %p.text-center
-        = link_to text_and_icon('plus', "Add Task", false), new_task_path, class: 'btn btn-link'
+        = link_to fa_icon_with_removed_text('plus', text: "Add Task", right: false), new_task_path, class: 'btn btn-link'
   .col-md-4.col-sm-4.col-xs-4
