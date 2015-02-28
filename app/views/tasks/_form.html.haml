@@ -1,15 +1,4 @@
 = form_for @task, class: 'form-inline' do |f|
-
-  / - if @task.errors.any?
-  /   = content_tag(:div, class: ["alert", "alert-danger", "alert-dismissible"], role: "alert", id: "error-explanation") do
-  /     = content_tag(:button, class: "close", type: "button", "data-dismiss"=> "alert") do
-  /       = content_tag(:span, escape_once("&times;"), "aria-hidden"=> "true")
-  /       = content_tag(:span, "Close", class: "sr-only")
-  /     %p= pluralize(@task.errors.count, "error") + " prohibited this user from being saved"
-  /     %ul
-  /       - @task.errors.full_messages.each do |msg|
-  /         %li= msg
-
   .form-group
     %p
       = f.datetime_select :done_at, default: Time.now.in_time_zone, ampm: true, use_month_numbers: true, discard_minute: true, class: 'form-control'

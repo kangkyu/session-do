@@ -21,11 +21,4 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-  # def either_tasks_url(task)
-  #   if task.is_daily
-  #     daily_tasks_url
-  #   else
-  #     tasks_url
-  #   end
-  # end
 end

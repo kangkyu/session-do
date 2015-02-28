@@ -1,0 +1,9 @@
+- if obj.errors.any?
+  = content_tag(:div, class: ["alert", "alert-danger", "alert-dismissible"], role: "alert", id: "error-explanation") do
+    = content_tag(:button, class: "close", type: "button", "data-dismiss"=> "alert") do
+      = content_tag(:span, escape_once("&times;"), "aria-hidden"=> "true")
+      = content_tag(:span, "Close", class: "sr-only")
+    %p= pluralize(obj.errors.count, "error") + " prohibited this user from being saved"
+    %ul
+      - obj.errors.full_messages.each do |msg|
+        %li= msg
