@@ -1,10 +1,19 @@
 .row
   .col-md-4.col-sm-4.col-xs-4
   .col-md-4.col-sm-4.col-xs-4
-    - unless discard_tasks
-      %p.text-center
-        = link_to fa_icon('arrow-left', text: 'Back', right: false), tasks_path, class:'btn btn-daily'
-    - unless discard_link_middle
-      %p.text-center
+    %p.text-center
+      - case page
+      - when :task_form, :user_edit
+        = link_to fa_icon('arrow-left', text: 'Back', right: false), tasks_path, class: 'btn btn-daily'
+      - when :task_index
         = link_to fa_icon_with_removed_text('plus', text: "Add Task", right: false), new_task_path, class: 'btn btn-link'
+      - when :session_new
+        = link_to "Sign Up", register_path, class: 'btn btn-link'
+      - when :user_new
+        = link_to "Log In", login_path, class: 'btn btn-link'
+      - else
+        = "link or button?"
   .col-md-4.col-sm-4.col-xs-4
+    %p.text-right
+      - if page == :user_new
+        = link_to "First time?", welcome_guide_path, class: 'btn btn-link'

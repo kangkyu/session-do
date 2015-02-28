@@ -1,11 +1,5 @@
 %h2.text-center Log In
-
-.row
-  .col-md-4.col-sm-3.col-xs-3
-  .col-md-4.col-sm-6.col-xs-6
-    %p.text-center
-      = link_to "Sign Up", register_path, class: 'btn btn-link'
-  .col-md-4.col-sm-3.col-xs-3
+= render 'layouts/tab_bar', page: :session_new
 
 = form_tag session_path, class: 'form-group' do |f|
   .form-group
