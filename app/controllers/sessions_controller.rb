@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+    redirect_to tasks_url if current_user
   end
 
   def create

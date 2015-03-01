@@ -16,10 +16,15 @@ describe "the login process", :type => :feature do
 
     visit '/'
     expect(page).to have_content 'Log Out'
+
+    visit '/login'
+    expect(page).to_not have_content 'Log In'
   end
 
-  it "opens register page before login" do
+  it "opens login page if before login" do
     visit '/'
-    expect(page).to have_content 'First time?'
+    expect(page).to_not have_content 'First time?'
+    expect(page).to have_content 'Log In'
+
   end
 end
