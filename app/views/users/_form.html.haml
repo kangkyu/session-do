@@ -1,5 +1,5 @@
 = form_for @user, class: 'form-inline' do |f|
-.form-group.required
+  .form-group.required
     = f.text_field :username, placeholder: "username", class: 'form-control'
   .form-group
     = f.email_field :email, placeholder: "email", class: 'form-control'
@@ -10,4 +10,3 @@
       = f.submit 'Sign Up', class: 'btn btn-default btn-success'
   - else
     = f.submit 'Update', class: 'btn btn-default'
-    
