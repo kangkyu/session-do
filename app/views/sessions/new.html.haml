@@ -1,7 +1,7 @@
 %h2.text-center Log In
 = render 'layouts/tab_bar', page: :session_new
 
-= form_tag session_path, class: 'form-group' do |f|
+= form_tag session_path, class: 'form-group', id: "session" do |f|
   .form-group
     = email_field_tag :email, nil, placeholder: "email", class: 'form-control'
   .form-group
