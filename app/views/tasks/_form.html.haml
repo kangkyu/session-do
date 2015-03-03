@@ -7,9 +7,10 @@
     = f.text_field :name, placeholder: "name of task (necessary)", class: 'form-control'
   .form-group
     = f.text_field :comment, placeholder: "comment", class: 'form-control'
-  .form-group
-    = f.label :is_daily, 'Let\'s do it daily!'
-    = f.check_box :is_daily
+  .checkbox
+    = f.label :is_daily do
+      = f.check_box :is_daily
+      Let's do it everyday!
   - if @task.new_record?
     = f.submit 'Add', class: 'btn btn-default'
   - else
