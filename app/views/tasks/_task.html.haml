@@ -8,7 +8,7 @@
         %span{style:"margin-left: 2px;"}= task.comment
     .col-md-5.col-sm-4.col-xs-5
       %p.text-right
-        = link_to fa_icon_with_removed_text('check', text: 'Clear'), clear_task_path(task), class: 'btn btn-default'
+        = link_to fa_icon_with_removed_text('check', text: 'Touch'), clear_task_path(task), class: 'btn btn-default'
         \ #{link_to fa_icon_with_removed_text('times', text: 'Delete'), task, method: :delete, class: 'btn btn-danger'}
   .progress
     = progress_bar_tag(task)

@@ -1,6 +1,7 @@
 $transparent: rgb(0.0, 0.0, 0.0)
 $success: #5cb85c
 $primary: #337ab7
+$default-border: #333333
 
 .progress
   position: relative
@@ -34,6 +35,9 @@ body
 
 .btn-non-daily, .title-non-daily
   @include button-variant($primary, white, white)
+
+.btn.btn-default
+  border-color: $default-border
 
 .btn#task-name
   font-weight: bold !important

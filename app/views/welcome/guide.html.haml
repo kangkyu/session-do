@@ -1,16 +1,12 @@
-%h2.text-center.title-non-daily Non-Dailies
+%h2.text-center Tasks in touch
 .row
   .col-md-4.col-sm-4.col-xs-4
   .col-md-4.col-sm-4.col-xs-4
     %p.text-center
-      %a.btn.btn-daily{}
-        %i.fa.fa-arrow-left
-        Dailies
-  .col-md-4.col-sm-4.col-xs-4
-    %p.text-right
       %a.btn.btn-link{}
         %span.text-remover Add Task
         %i.fa.fa-plus
+  .col-md-4.col-sm-4.col-xs-4
 .row
   .col-md-6.col-sm-7.col-xs-6
     %p.text-left
@@ -21,11 +17,9 @@
       %span{:style => "margin-left: 2px;"}
   .col-md-6.col-sm-5.col-xs-6
     %p.text-right
-      %a.btn.btn-success{}
-        %i.fa.fa-arrow-left
-        %span.text-remover To Dailies
+
       %a.btn.btn-default{}
-        %span.text-remover Clear
+        %span.text-remover Touch
         %i.fa.fa-check
       %a.btn.btn-danger{}
         %span.text-remover Delete
@@ -44,11 +38,9 @@
       %span{:style => "margin-left: 2px;"}
   .col-md-6.col-sm-5.col-xs-6
     %p.text-right
-      %a.btn.btn-success{}
-        %i.fa.fa-arrow-left
-        %span.text-remover To Dailies
+
       %a.btn.btn-default{}
-        %span.text-remover Clear
+        %span.text-remover Touch
         %i.fa.fa-check
       %a.btn.btn-danger{}
         %span.text-remover Delete
@@ -67,11 +59,9 @@
       %span{:style => "margin-left: 2px;"}
   .col-md-6.col-sm-5.col-xs-6
     %p.text-right
-      %a.btn.btn-success{}
-        %i.fa.fa-arrow-left
-        %span.text-remover To Dailies
+
       %a.btn.btn-default{}
-        %span.text-remover Clear
+        %span.text-remover Touch
         %i.fa.fa-check
       %a.btn.btn-danger{}
         %span.text-remover Delete
@@ -90,11 +80,9 @@
       %span{:style => "margin-left: 2px;"}
   .col-md-6.col-sm-5.col-xs-6
     %p.text-right
-      %a.btn.btn-success{}
-        %i.fa.fa-arrow-left
-        %span.text-remover To Dailies
+
       %a.btn.btn-default{}
-        %span.text-remover Clear
+        %span.text-remover Touch
         %i.fa.fa-check
       %a.btn.btn-danger{}
         %span.text-remover Delete
@@ -105,4 +93,4 @@
   .text-center
 
 %p.text-center
-  = link_to 'back to Sign Up', register_path, class: 'btn btn-default'
+  = link_to 'back to Sign Up', register_path, class: 'btn btn-non-daily'

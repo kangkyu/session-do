@@ -4,9 +4,9 @@
     %p.text-center
       - case page
       - when :task_form, :user_edit
-        = link_to fa_icon('arrow-left', text: 'Back', right: false), tasks_path, class: 'btn btn-daily'
+        = link_to fa_icon('arrow-left', text: 'Back', right: false), tasks_path, class: 'btn btn-non-daily'
       - when :task_index
-        = link_to fa_icon_with_removed_text('plus', text: "Add Task", right: false), new_task_path, class: 'btn btn-link'
+        = link_to fa_icon_with_removed_text('plus', text: "Add Task", right: false), new_task_path, class: 'btn btn-non-daily'
       - when :session_new
         = link_to "Sign Up", register_path, class: 'btn btn-link'
       - when :user_new
