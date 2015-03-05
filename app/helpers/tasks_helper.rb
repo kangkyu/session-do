@@ -33,7 +33,7 @@ module TasksHelper
 
   def progress_bar_text(task)
     if task.time_passed_by < 0
-      content_tag(:span, distance_of_time_in_words_to_now(task.done_at).concat(" later"), class: "bar-text-color-white")
+      content_tag(:span, distance_of_time_in_words_to_now(task.done_at).concat(" from now"), class: "bar-text-color-white")
     end
   end
 
