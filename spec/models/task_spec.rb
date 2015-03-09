@@ -2,6 +2,29 @@ require 'rails_helper'
 
 describe Task do
 
+  describe '.time_passed_by' do
+    it "returns negative time in the future" do
+      task = Task.new(task_attributes)
+      allow(Time).to receive(:now).and_return(task.done_at + 2.hours)
+      # Time.stub(:now).and_return(task.done_at + 2.hours)
+      expect(task.time_passed_by).to be > 0
+      expect(task.time_passed_by).to be_a(Integer)
+    end
+    it "returns negative time in the past" do
+      task = Task.new(task_attributes)
+      allow(Time).to receive(:now).and_return(task.done_at - 2.hours)
+      expect(task.time_passed_by).to be < 0
+    end
+  end
+
+  describe '.bar_length' do
+    it "returns an integer" do
+      task = Task.new(task_attributes)
+      allow(Time).to receive(:now).and_return(task.done_at + 2.hours)
+      expect(task.bar_length).to be_a(Integer)
+    end
+  end
+
   context "Validation" do
     it "is valid with all the attributes in place" do
       task = Task.new(task_attributes)
