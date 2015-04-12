@@ -1,6 +1,9 @@
 class TasksController < ApplicationController
   before_action :require_login
 
+  def show
+    @task = Task.find(params[:id])
+  end
   def index
     @tasks = current_user.tasks.sorted_by_done_at
   end
