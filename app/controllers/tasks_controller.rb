@@ -30,6 +30,7 @@ class TasksController < ApplicationController
 
   def clear
     @task = current_user.tasks.find(params[:id])
+    @visit = Visit.create(user_id: session[:user_id], task_id: params[:id], note: "visited!")
     if @task.is_daily
       @task.update(done_at: Date.today + 1)
     else
