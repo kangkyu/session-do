@@ -41,7 +41,8 @@ class TasksController < ApplicationController
     else
       @task.update(done_at: Time.now.in_time_zone)
     end
-    redirect_to tasks_url, notice: "Task Visited!"
+    redirect_to @task
+    # redirect_to tasks_url, notice: "Task Visited!"
   end
 
   def edit
