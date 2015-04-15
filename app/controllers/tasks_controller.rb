@@ -29,9 +29,8 @@ class TasksController < ApplicationController
   end
 
   def clear
-    # fail
     @task = current_user.tasks.find(params[:id])
-    if params[:visit][:note].blank?
+    if !params[:visit] || params[:visit][:note].blank?
       @visit = Visit.create(user_id: session[:user_id], task_id: params[:id], note: "visited!")
     else
       @visit = Visit.create({user_id: session[:user_id], task_id: params[:id]}.merge params.require(:visit).permit(:note))

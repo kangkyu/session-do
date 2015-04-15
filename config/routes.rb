@@ -3,10 +3,12 @@ Rails.application.routes.draw do
 
   resources :tasks do
     resources :visits
+    member do
+      post 'clear'
+      get 'clear'
+    end
   end
   root to: 'tasks#index'
-  post 'tasks/:id/clear', to: 'tasks#clear'
-  get 'tasks/:id/clear', to: 'tasks#clear', as: 'clear_task'
 
   resources :users, except: [:destroy, :show, :index]
   get 'register', to: 'users#new'
