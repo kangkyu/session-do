@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :visits
   end
   root to: 'tasks#index'
+  post 'tasks/:id/clear', to: 'tasks#clear'
   get 'tasks/:id/clear', to: 'tasks#clear', as: 'clear_task'
 
   resources :users, except: [:destroy, :show, :index]
