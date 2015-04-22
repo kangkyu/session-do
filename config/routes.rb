@@ -5,7 +5,6 @@ Rails.application.routes.draw do
     resources :visits
     member do
       post 'clear'
-      get 'clear'
     end
   end
   root to: 'tasks#index'

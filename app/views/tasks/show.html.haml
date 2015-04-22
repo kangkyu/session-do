@@ -2,45 +2,60 @@
 = render 'layouts/tab_bar', page: :task_show
 
 .text-center
-  .row
-    .col-md-7.col-sm-8.col-xs-7
-      %p.text-left
+.row
+  .col-md-7.col-sm-8.col-xs-7
+    %p
+      .text-left
         = link_to task_name(@task), edit_task_path(@task)
         %small
           %code= "on #{(@task.done_at).strftime("%b %d")}"
         %span{style:"margin-left: 2px;"}= @task.comment
-    .col-md-5.col-sm-4.col-xs-5
-      %p.text-right
-        = link_to fa_icon_with_removed_text('check', text: 'Visit'), clear_task_path(@task), class: 'btn btn-default'
-        = link_to fa_icon_with_removed_text('times', text: 'Delete'), @task, method: :delete, class: 'btn btn-danger'
-  .progress
-    = progress_bar_tag(@task)
-    .text-center
-      = progress_bar_text(@task)
+  .col-md-5.col-sm-4.col-xs-5
+    %p
+      .text-right
+        = button_to @task, method: :delete, class: 'btn btn-danger' do
+          - fa_icon_with_removed_text('times', text: 'Delete')
+.progress
+  = progress_bar_tag(@task)
+  .text-center
+    = progress_bar_text(@task)
 
 %table.table.table-condensed
-  %thead
-    %tr
-      %th
-      %th note
-      %th created_at
-      %th updated_at
+  / %thead
+  /   %th
+  /   %th
   %tbody
     - @task.visits.each do |visit|
       %tr
-        %td= visit.id
-        %td= visit.note
-        %td= visit.created_at
-        %td= visit.updated_at
-
+        %td
+          .row
+            .col-md-3
+              .text-right
+                %small
+                  %strong created
+                  = time_ago_in_words(visit.created_at)
+                  ago
+              / .text-right
+              /   %small
+              /     %strong updated
+              /     = time_ago_in_words(visit.updated_at)
+              /     ago
+            .col-md-9
+              = simple_format visit.note
+        %td
+          .text-right
+            = button_to [@task, visit], method: :delete, class: 'btn btn-danger' do
+              - fa_icon_with_removed_text('times', text: 'Delete')
     %tr
       %td
-      = form_for [@task, @task.visits.last], action: 'edit', class: 'form-inline' do |f|
-        %td
-          .form-group
-            = f.text_area :note, class: 'form-control'
-        %td
-          = f.button class: 'btn btn-default' do
-            = fa_icon_with_removed_text('check', text: 'Visit')
+        = form_for [@task, @task.visits.last], action: 'update' do |f|
+          .text-right
+            = f.button class: 'btn btn-default' do
+              = fa_icon('refresh', text: 'Update Note')
+          %p
+            .text-left
+              = f.text_area :note, class: 'form-control', row: 3
       %td
-
+        .text-right
+          = button_to clear_task_path(@task), class: 'btn btn-default' do
+            - fa_icon_with_removed_text('check', text: 'Visit')
