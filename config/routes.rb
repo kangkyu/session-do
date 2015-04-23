@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'welcome/guide'
 
   resources :tasks do
-    resources :visits
+    resources :visits, only: [:update, :destroy]
     member do
       post 'clear'
     end
