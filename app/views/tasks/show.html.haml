@@ -47,15 +47,18 @@
             = button_to [@task, visit], method: :delete, class: 'btn btn-danger' do
               - fa_icon_with_removed_text('times', text: 'Delete')
     %tr
-      %td
-        = form_for [@task, @task.visits.last], action: 'update' do |f|
-          .text-right
-            = f.button class: 'btn btn-default' do
-              = fa_icon('refresh', text: 'Update Note')
-          %p
-            .text-left
-              = f.text_area :note, class: 'form-control', row: 3
+      %td{style: "width: 100%;"}
+        - if @task.visits.blank?
+          No Visits for this task
+        - else
+          = form_for [@task, @task.visits.last], action: 'update' do |f|
+            .text-right
+              = f.button class: 'btn btn-default' do
+                = fa_icon('refresh', text: 'Update Note')
+            %p
+              .text-left
+                = f.text_area :note, class: 'form-control', row: 3
       %td
         .text-right
           = button_to clear_task_path(@task), class: 'btn btn-default' do
-            - fa_icon_with_removed_text('check', text: 'Visit')
+            - fa_icon_with_removed_text('check', text: 'add Visit')

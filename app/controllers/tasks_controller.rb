@@ -46,7 +46,7 @@ class TasksController < ApplicationController
       user_id: session[:user_id],
       task_id: params[:id],
       note:
-        if params[:visit][:note].blank?
+        if !params[:visit] || params[:visit][:note].blank?
           "visited!"
         else
           params.require(:visit).permit(:note)["note"]
