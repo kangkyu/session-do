@@ -14,7 +14,7 @@
     %p
       .text-right
         = button_to @task, method: :delete, class: 'btn btn-danger' do
-          - fa_icon_with_removed_text('times', text: 'Delete')
+          - fa_icon('trash', text: 'Delete')
 .progress
   = progress_bar_tag(@task)
   .text-center
@@ -44,7 +44,7 @@
               = simple_format visit.note
         %td
           .text-right
-            = button_to [@task, visit], method: :delete, class: 'btn btn-danger' do
+            = button_to [@task, visit], method: :delete, class: 'btn btn-danger btn-sm' do
               - fa_icon_with_removed_text('times', text: 'Delete')
     %tr
       %td{style: "width: 100%;"}
