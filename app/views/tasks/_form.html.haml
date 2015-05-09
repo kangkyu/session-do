@@ -10,9 +10,8 @@
     = f.label :is_daily do
       = f.check_box :is_daily
       Let's do it everyday!
-  .row
-    .col-md-7.col-sm-8.col-xs-7
-      - if @task.new_record?
-        = f.submit 'Add', class: 'btn btn-default'
-      - else
-        = f.submit 'Update', class: 'btn btn-default'
+  .text-right
+    - if @task.new_record?
+      = f.submit 'Add', class: 'btn btn-default'
+    - else
+      = f.submit 'Update', class: 'btn btn-default'
