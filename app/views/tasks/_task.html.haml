@@ -1,20 +1,20 @@
 %div
   .row
     .col-md-7.col-sm-8.col-xs-7
-      %p
-        .text-left
-          = link_to task_name(task), task_path(task)
-          %small
-            %code= "on #{(task.done_at).strftime("%b %d")}"
-          %span{style:"margin-left: 2px;"}= task.comment
+      .text-left
+        = link_to task_name(task), edit_task_path(task)
+        %small
+          %code= "on #{(task.done_at).strftime("%b %d")}"
+        %span{style:"margin-left: 2px;"}= task.comment
     .col-md-5.col-sm-4.col-xs-5
+      = form_for [task, Visit.new], url: clear_task_path(task) do |f|
+        .input-group
+          = link_to fa_icon_with_removed_text('pencil-square-o', text: 'Show notes'), task_path(task), class: 'input-group-addon'
+          = f.text_field :note, class: "form-control", placeholder: "visited!"
+          %span.input-group-btn
+            = f.button class: 'btn btn-warning' do
+              = fa_icon_with_removed_text('check', text: 'Visit')
       %p
-        = form_for [task, Visit.new], url: clear_task_path(task) do |f|
-          .input-group
-            = f.text_field :note, class: "form-control", placeholder: "visited!"
-            %span.input-group-btn
-              = f.button class: 'btn btn-default' do
-                = fa_icon_with_removed_text('check', text: 'Visit')
   .progress
     = progress_bar_tag(task)
     .text-center

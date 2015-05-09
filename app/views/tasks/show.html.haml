@@ -2,63 +2,35 @@
 = render 'layouts/tab_bar', page: :task_show
 
 .text-center
-.row
-  .col-md-7.col-sm-8.col-xs-7
-    %p
-      .text-left
-        = link_to task_name(@task), edit_task_path(@task)
-        %small
-          %code= "on #{(@task.done_at).strftime("%b %d")}"
-        %span{style:"margin-left: 2px;"}= @task.comment
-  .col-md-5.col-sm-4.col-xs-5
-    %p
-      .text-right
-        = button_to @task, method: :delete, class: 'btn btn-danger' do
-          - fa_icon('trash', text: 'Delete')
-.progress
-  = progress_bar_tag(@task)
-  .text-center
-    = progress_bar_text(@task)
+  = render(@task)
 
-%table.table.table-condensed
-  / %thead
-  /   %th
-  /   %th
-  %tbody
-    - @task.visits.each do |visit|
-      %tr
-        %td
-          .row
-            .col-md-3
-              .text-right
-                %small
-                  %strong created
-                  = time_ago_in_words(visit.created_at)
-                  ago
-              / .text-right
-              /   %small
-              /     %strong updated
-              /     = time_ago_in_words(visit.updated_at)
-              /     ago
-            .col-md-9
-              = simple_format visit.note
-        %td
-          .text-right
-            = button_to [@task, visit], method: :delete, class: 'btn btn-danger btn-sm' do
-              - fa_icon_with_removed_text('times', text: 'Delete')
-    %tr
-      %td{style: "width: 100%;"}
-        - if @task.visits.blank?
-          No Visits for this task
-        - else
-          = form_for [@task, @task.visits.last], action: 'update' do |f|
-            .text-right
-              = f.button class: 'btn btn-default' do
-                = fa_icon('refresh', text: 'Update Note')
-            %p
-              .text-left
-                = f.text_area :note, class: 'form-control', row: 3
-      %td
+- if @task.visits.blank?
+  .text-center
+    No Visits for this task yet.
+- else
+  - @task.visits.each do |visit|
+    .row
+      .col-md-10.col-sm-11.col-xs-10
+        = simple_format visit.note
         .text-right
-          = button_to clear_task_path(@task), class: 'btn btn-default' do
-            - fa_icon_with_removed_text('check', text: 'add Visit')
+          %p
+            %small
+              %strong
+                = time_ago_in_words(visit.created_at)
+                ago /
+                = time_ago_in_words(visit.updated_at)
+                ago
+      .col-md-2.col-sm-1.col-xs-2
+        .text-right
+          = button_to [@task, visit], method: :delete, class: 'btn btn-danger btn-sm' do
+            - fa_icon_with_removed_text('times', text: 'Delete')
+    = form_for [@task, visit], action: 'update' do |f|
+      .row
+        .col-md-10.col-sm-11.col-xs-10
+          .text-left
+            = f.text_area :note, class: 'form-control', row: 3
+        .col-md-2.col-sm-1.col-xs-2
+          .text-right
+            = f.button class: 'btn btn-default btn-sm' do
+              = fa_icon_with_removed_text('refresh', text: 'Update Note')
+    %p
