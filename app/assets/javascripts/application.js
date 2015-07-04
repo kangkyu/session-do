@@ -17,3 +17,5 @@
 //= require_tree .
 
 //= require local_time
+//= require jquery.ui.all
+//= require jquery.ui.datepicker
