@@ -59,4 +59,4 @@ group :production do
 end
 
 gem 'local_time', '~> 1.0.0'
-gem 'jquery-ui-sass-rails'
+gem 'bootstrap-datepicker-rails'
