@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.1.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.7'
+gem 'rails', '4.1.12'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -59,3 +59,4 @@ group :production do
 end
 
 gem 'local_time', '~> 1.0.0'
+gem 'bootstrap-datepicker-rails'
