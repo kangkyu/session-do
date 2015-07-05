@@ -1,6 +1,6 @@
 = form_for @task, class: 'form-inline' do |f|
   .form-group
-    = f.datetime_field :done_at, value: f.object.done_at.try(:strftime, "%Y-%m-%d"), class: 'form-control', "data-provide" => 'datepicker', "data-date-format" => "yyyy-mm-dd"
+    = f.text_field :done_at, value: f.object.done_at.try(:strftime, "%Y-%m-%d"), class: 'form-control', "data-provide" => 'datepicker', "data-date-format" => "yyyy-mm-dd"
     / = f.label 'To Do Time Point'
   .form-group.required
     = f.text_field :name, placeholder: "name of task (necessary)", class: 'form-control'
