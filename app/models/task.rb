@@ -1,5 +1,6 @@
 class Task < ActiveRecord::Base
   belongs_to :user
+  has_many :visits
   
   validates :name, presence: true
 
