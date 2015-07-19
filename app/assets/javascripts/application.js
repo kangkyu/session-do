@@ -17,3 +17,4 @@
 //= require_tree .
 
 //= require local_time
+//= require bootstrap-datepicker

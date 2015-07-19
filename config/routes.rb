@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   get 'welcome/guide'
 
-  resources :tasks
+  resources :tasks do
+    member do
+      post 'clear'
+    end
+  end
   root to: 'tasks#index'
-  get 'tasks/:id/clear', to: 'tasks#clear', as: 'clear_task'
 
   resources :users, except: [:destroy, :show, :index]
   get 'register', to: 'users#new'

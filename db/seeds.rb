@@ -7,6 +7,12 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.delete_all
+users = User.create!([
+  {username: "jimmy", email: "jimmy@example.com", password: "1111"},
+  {username: "kang", email: "kang@example.com", password: "1111"}
+])
+
 Task.delete_all
-User.create!(username: "jimmy", email: "jimmy@example.com", password: "1111")
-Task.create!(name: 'training', comment: 'work hard!', done_at: Time.now.in_time_zone - 2.days, user: User.first)
+tasks = Task.create!([
+  {name: 'training', comment: 'work hard!', done_at: Time.now.in_time_zone - 2.days, user: users.first}
+])

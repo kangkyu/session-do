@@ -1,8 +1,7 @@
 = form_for @task, class: 'form-inline' do |f|
   .form-group
-    %p
-      = f.datetime_select :done_at, default: Time.now.in_time_zone, ampm: true, use_month_numbers: true, discard_minute: true, class: 'form-control'
-      / = f.label 'To Do Time Point'
+    = f.text_field :done_at, value: f.object.done_at.try(:strftime, "%Y-%m-%d"), class: 'form-control', "data-provide" => 'datepicker', "data-date-format" => "yyyy-mm-dd"
+    / = f.label 'To Do Time Point'
   .form-group.required
     = f.text_field :name, placeholder: "name of task (necessary)", class: 'form-control'
   .form-group
@@ -11,7 +10,8 @@
     = f.label :is_daily do
       = f.check_box :is_daily
       Let's do it everyday!
-  - if @task.new_record?
-    = f.submit 'Add', class: 'btn btn-default'
-  - else
-    = f.submit 'Update', class: 'btn btn-default'
+  .text-right
+    - if @task.new_record?
+      = f.submit 'Add', class: 'btn btn-default'
+    - else
+      = f.submit 'Update', class: 'btn btn-default'
