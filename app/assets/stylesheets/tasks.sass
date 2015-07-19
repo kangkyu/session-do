@@ -1,3 +1,36 @@
 // Place all the styles related to the Tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.progress
+  position: relative
+
+.progress div.progress-bar.progress-bar-primary
+  background-color: DodgerBlue
+
+.progress span
+  position: absolute
+  display: block
+  width: 100%
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000
+
+// Progress bars with centered text
+.bar-text-color-white
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000
+  color: white
+  font-size: 12px
+
+.badge
+  background-color: #5cb85c
+  border: 0
+  border-radius: 0px
+
+.task-daily
+  @include button-variant($success, white, white)
+
+.task-non-daily
+  @include button-variant($primary, white, white)
+
+#task-name
+  font-weight: bold !important
+  padding: 0

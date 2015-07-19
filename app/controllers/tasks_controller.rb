@@ -1,6 +1,5 @@
 class TasksController < ApplicationController
   before_action :require_login
-  # before_action :load_task, only: [:show, :destroy, :clear, :edit, :update]
 
   def index
     @tasks = current_user.tasks.sorted_by_done_at
@@ -20,10 +19,6 @@ class TasksController < ApplicationController
     end
   end
 
-  def show
-    load_task
-  end
-
   def destroy
     load_task
     @task.destroy
@@ -40,18 +35,7 @@ class TasksController < ApplicationController
           Time.now.in_time_zone
         end
     )
-    redirect_to @task, notice: "Task Visited!"
-
-    @visit = Visit.create(
-      user_id: session[:user_id],
-      task_id: params[:id],
-      note:
-        if !params[:visit] || params[:visit][:note].blank?
-          "visited!"
-        else
-          params.require(:visit).permit(:note)["note"]
-        end
-    )
+    redirect_to tasks_url, notice: "Task Visited!"
   end
 
   def edit
