@@ -1,5 +1,10 @@
 %h2.text-center Tasks in touch
 = render 'layouts/tab_bar', page: :task_index
 
-.text-center
-  = render(@tasks) || "You don't have any tasks to do."
+.row
+  .col-md-5.col-md-offset-1.col-sm-6
+    .text-center
+      = render(@tasks.daily) || "You don't have any tasks to do."
+  .col-md-5.col-sm-6
+    .text-center
+      = render(@tasks.put_off) || "You don't have any tasks to do."
