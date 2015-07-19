@@ -2,14 +2,14 @@
   .row
     .col-md-7.col-sm-8.col-xs-7
       %p.text-left
-        = link_to task_name(task), edit_task_path(task)
+        = task_name(task)
         %small
           %code on #{(task.done_at).strftime("%b %d")}
         %span{style:"margin-left: 2px;"}= task.comment
     .col-md-5.col-sm-4.col-xs-5
       %p.text-right
         = link_to fa_icon_with_removed_text('check', text: 'Visit'), clear_task_path(task), method: "post", class: 'btn btn-default btn-sm'
-        \ #{link_to fa_icon_with_removed_text('times', text: 'Edit'), edit_task_path(task), class: 'btn btn-default btn-sm'}
+        \ #{link_to fa_icon_with_removed_text('bolt', text: 'Edit'), edit_task_path(task), class: 'btn btn-warning btn-sm'}
   .progress
     = progress_bar_tag(task)
     .text-center

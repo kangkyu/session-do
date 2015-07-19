@@ -1,7 +1,7 @@
 module TasksHelper
 
   def task_name(task)
-    content_tag(:span, truncate(task.name), class: [("task-daily" if task.is_daily)], id: 'task-name')
+    content_tag(:span, truncate(task.name), class: [(task.is_daily ? "task-daily" : "task-non-daily")], id: 'task-name')
   end
 
   def fa_icon_with_removed_text(icon_name, options={})
