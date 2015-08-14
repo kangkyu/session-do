@@ -17,9 +17,8 @@ module ApplicationHelper
       link_to fa_icon_with_removed_text('plus', text: "Add Task", right: false), new_task_path, class: 'btn btn-non-daily'
     elsif (controller_name == 'tasks' && action_name == 'edit') ||
       (controller_name == 'tasks' && action_name == 'new') ||
-      (controller_name == 'users' && action_name == 'edit') ||
-      (controller_name == 'tasks' && action_name == 'show')
-    # :task_form, :user_edit, :task_show
+      (controller_name == 'users' && action_name == 'edit')
+    # :task_form, :user_edit
       link_to fa_icon('arrow-left', text: 'Back', right: false), tasks_path, class: 'btn btn-non-daily'
     else
       "Any link or button?"
