@@ -1,14 +1,20 @@
-= form_for @task, class: 'form-inline' do |f|
-  .form-group
-    = f.text_field :done_at, value: f.object.done_at.try(:strftime, "%Y-%m-%d"), class: 'form-control', "data-provide" => 'datepicker', "data-date-format" => "yyyy-mm-dd"
-    / = f.label 'To Do Time Point'
-  .form-group.required
-    = f.text_field :name, placeholder: "name of task (necessary)", class: 'form-control'
-  .form-group
-    = f.text_field :comment, placeholder: "comment", class: 'form-control'
-  .checkbox
-    = f.label :is_daily do
-      = f.check_box :is_daily
-      Let's do it everyday!
-  .text-right
-    = f.submit (@task.new_record? ? 'Add' : 'Update'), class: 'btn btn-default btn-sm'
+.row
+  .col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2.col-xs-12
+    = form_for @task, class: 'form-inline' do |f|
+      .form-group
+        = f.text_field :done_at, placeholder: "task date", value: f.object.done_at.try(:strftime, "%Y-%m-%d"), class: 'form-control', "data-provide" => 'datepicker', "data-date-format" => "yyyy-mm-dd"
+        / = f.label 'To Do Time Point'
+      .form-group.required
+        = f.text_field :name, placeholder: "name of task (necessary)", class: 'form-control'
+      .form-group
+        = f.text_field :comment, placeholder: "comment", class: 'form-control'
+      .checkbox
+        = f.label :is_daily do
+          = f.check_box :is_daily
+          Let's do it everyday!
+      .text-right
+        = f.submit (@task.new_record? ? 'Add' : 'Update'), class: 'btn btn-default btn-sm'
+
+- if !@task.new_record?
+  = button_to @task, method: :delete, class: 'btn btn-danger btn-sm' do
+    - fa_icon('times', text: 'Delete')
