@@ -1,12 +1,13 @@
-= form_for @user, class: 'form-inline' do |f|
-  .form-group.required
-    = f.text_field :username, placeholder: "username", class: 'form-control'
-  .form-group
-    = f.email_field :email, placeholder: "email", class: 'form-control'
-  .form-group
-    = f.password_field :password, placeholder: "password", class: 'form-control'
-  - if @user.new_record?
-    .text-center
-      = f.submit 'Sign Up', class: 'btn btn-default btn-success'
-  - else
-    = f.submit 'Update', class: 'btn btn-default'
+.row
+  .col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2.col-xs-12
+    = form_for @user, class: 'form-inline' do |f|
+      .form-group.required
+        = f.text_field :username, placeholder: "username", class: 'form-control'
+      .form-group
+        = f.email_field :email, placeholder: "email", class: 'form-control'
+      .form-group
+        = f.password_field :password, placeholder: "password", class: 'form-control'
+      - if @user.new_record?
+        .text-center= f.submit 'Sign Up', class: 'btn btn-success'
+      - else
+        = f.submit 'Update', class: 'btn btn-default'

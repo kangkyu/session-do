@@ -1,19 +1,17 @@
+%h2.text-center= title
 .row
-  .col-md-4.col-sm-4.col-xs-4
-  .col-md-4.col-sm-4.col-xs-4
-    %p.text-center
-      - case page
-      - when :task_form, :user_edit, :task_show
-        = link_to fa_icon('arrow-left', text: 'Back', right: false), tasks_path, class: 'btn btn-non-daily'
-      - when :task_index
-        = link_to fa_icon_with_removed_text('plus', text: "Add Task", right: false), new_task_path, class: 'btn btn-non-daily'
-      - when :session_new
-        = link_to "Sign Up", register_path, class: 'btn btn-link'
-      - when :user_new
-        = link_to "Log In", login_path, class: 'btn btn-link'
-      - else
-        = "link or button?"
-  .col-md-4.col-sm-4.col-xs-4
-    %p.text-right
-      - if page == :user_new
-        = link_to "First time?", welcome_guide_path, class: 'btn btn-link'
+  .col-xs-4.col-xs-offset-4
+    .text-center
+      %p
+        - if current_cont?('sessions', 'new')
+          = link_to "Sign Up", register_path, class: 'btn btn-link'
+        - elsif current_cont?('users', 'new')
+          = link_to "Log In", login_path, class: 'btn btn-link'
+          = link_to "First time?", welcome_guide_path, class: 'btn btn-link'
+        - elsif current_cont?('tasks', 'index')
+          = link_to fa_icon_with_removed_text('plus', text: "Add Task", right: false), new_task_path, class: 'btn btn-non-daily'
+        - elsif current_cont?('tasks', 'edit') || current_cont?('tasks', 'new') || current_cont?('users', 'edit')
+          = link_to fa_icon('arrow-left', text: 'Back', right: false), tasks_path, class: 'btn btn-non-daily'
+        - else
+          = "Any link or button?"
+%hr

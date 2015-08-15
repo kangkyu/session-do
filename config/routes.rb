@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'welcome/guide'
 
-  resources :tasks do
+  resources :tasks, except: :show do
     member do
       post 'clear'
     end
