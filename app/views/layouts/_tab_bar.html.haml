@@ -1,9 +1,17 @@
 %h2.text-center= title
 .row
   .col-xs-4.col-xs-offset-4
-    %p.text-center
-      = helper_bar_center_button
-  .col-xs-4
-    %p.text-right
-      = helper_bar_right_button
+    .text-center
+      %p
+        - if current_cont?('sessions', 'new')
+          = link_to "Sign Up", register_path, class: 'btn btn-link'
+        - elsif current_cont?('users', 'new')
+          = link_to "Log In", login_path, class: 'btn btn-link'
+          = link_to "First time?", welcome_guide_path, class: 'btn btn-link'
+        - elsif current_cont?('tasks', 'index')
+          = link_to fa_icon_with_removed_text('plus', text: "Add Task", right: false), new_task_path, class: 'btn btn-non-daily'
+        - elsif current_cont?('tasks', 'edit') || current_cont?('tasks', 'new') || current_cont?('users', 'edit')
+          = link_to fa_icon('arrow-left', text: 'Back', right: false), tasks_path, class: 'btn btn-non-daily'
+        - else
+          = "Any link or button?"
 %hr
