@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/kangkyu/session-do.png?label=ready&title=Ready)](https://waffle.io/kangkyu/session-do)
 ## Tasks in Touch
 
 > you have said "I'll do it tomorrow" on the task for a while. but since when?
