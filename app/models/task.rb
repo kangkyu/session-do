@@ -1,4 +1,6 @@
 class Task < ActiveRecord::Base
+  after_initialize :done_at_init
+
   belongs_to :user
   has_many :visits
   
@@ -19,4 +21,7 @@ class Task < ActiveRecord::Base
     time_passed_by.abs.to_i/2
   end
 
+  def done_at_init
+    self.done_at ||= Time.now.in_time_zone
+  end
 end
