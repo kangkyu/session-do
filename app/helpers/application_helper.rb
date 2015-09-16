@@ -8,7 +8,11 @@ module ApplicationHelper
     end
   end
 
-  def current_cont?(controller, action)
-    controller_name == controller && action_name == action
+  def current_cont?(controller, action = nil)
+    if action
+      controller_name == controller && action_name == action
+    else
+      controller_name == controller
+    end
   end
 end
