@@ -5,7 +5,7 @@
         = f.text_field :done_at, placeholder: "task date", value: f.object.done_at.try(:strftime, "%Y-%m-%d"), class: 'form-control', "data-provide" => 'datepicker', "data-date-format" => "yyyy-mm-dd"
         / = f.label 'To Do Time Point'
       .form-group.required
-        = f.text_field :name, placeholder: "name of task (necessary)", class: 'form-control'
+        = f.text_field :name, placeholder: "name of task (required)", class: 'form-control', autofocus: true
       .form-group
         = f.text_field :comment, placeholder: "comment", class: 'form-control'
       .checkbox
