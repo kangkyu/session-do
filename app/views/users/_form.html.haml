@@ -7,7 +7,8 @@
         = f.email_field :email, placeholder: "email", class: 'form-control'
       .form-group
         = f.password_field :password, placeholder: "password", class: 'form-control'
-      - if @user.new_record?
-        .text-center= f.submit 'Sign Up', class: 'btn btn-success'
-      - else
-        = f.submit 'Update', class: 'btn btn-default'
+      .text-right
+        - if @user.new_record?
+          = f.submit 'Sign Up', class: 'btn btn-success'
+        - else
+          = f.submit 'Update', class: 'btn btn-default'

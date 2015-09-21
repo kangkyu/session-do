@@ -13,7 +13,7 @@
           = f.check_box :is_daily
           Let's do it everyday!
       .text-right
+        - if !@task.new_record?
+          = link_to @task, method: :delete, class: 'btn btn-danger btn-sm' do
+            - fa_icon('times', text: 'Delete')
         = f.submit (@task.new_record? ? 'Add' : 'Update'), class: 'btn btn-default btn-sm'
-    - if !@task.new_record?
-      = button_to @task, method: :delete, class: 'btn btn-danger btn-sm' do
-        - fa_icon('times', text: 'Delete')
