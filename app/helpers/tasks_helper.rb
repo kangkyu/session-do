@@ -2,7 +2,6 @@ module TasksHelper
 
   def task_name(task)
     task_name_class = task.is_daily ? "task-daily" : "task-non-daily"
-
     content_tag(:span, truncate(task.name), class: task_name_class, id: 'task-name')
   end
 
@@ -13,27 +12,17 @@ module TasksHelper
   end
 
   def progress_bar_tag(task)
-    bar_color_class = task.is_daily ? "progress-bar-success" : "progress-bar-primary"
-
-    if task.time_passed_by < 0
-      content_tag(:div, "",
-        "aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => task.bar_length,
-        :role => "progressbar", :style => "width: #{task.bar_length}%; float: right;",
-        class: ["progress-bar", "progress-bar-warning"])
-    else
-      content_tag(:div,
-        "aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => task.bar_length,
-        :role => "progressbar", :style => "width: #{task.bar_length}%;",
-        class: ["progress-bar", bar_color_class]) do
-          content_tag(:span, distance_of_time_in_words_to_now(task.done_at).concat(" ago"))
-      end
-    end
+    bar_color_class = task.time_passed_by < 0 ? "progress-bar-warning" : task.is_daily ? "progress-bar-success" : "progress-bar-primary"
+    float_style_value = task.time_passed_by < 0 ? "float: right;" : ""
+    content_tag(:div, "",
+      "aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => task.bar_length,
+      :role => "progressbar", :style => "width: #{task.bar_length}%; #{float_style_value}",
+      class: "progress-bar #{bar_color_class}")
   end
 
   def progress_bar_text(task)
-    if task.time_passed_by < 0
-      content_tag(:span, distance_of_time_in_words_to_now(task.done_at).concat(" from now"), class: "bar-text-color-white")
-    end
+    last_word = task.time_passed_by < 0 ? " from now" : " ago"
+    content_tag(:span, distance_of_time_in_words_to_now(task.done_at).concat(last_word), class: "bar-text-color-white")
   end
 
 end
