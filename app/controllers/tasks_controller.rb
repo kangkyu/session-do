@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :require_login
+  before_action :load_task, only: [:destroy, :clear, :edit, :update]
 
   def index
     @tasks = current_user.tasks.sorted_by_done_at
@@ -20,13 +21,11 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    load_task
     @task.destroy
     redirect_to tasks_url, notice: "Task Deleted!"
   end
 
   def clear
-    load_task
     @task.update(
       done_at:
         if @task.is_daily
@@ -39,11 +38,9 @@ class TasksController < ApplicationController
   end
 
   def edit
-    load_task
   end
 
   def update
-    load_task
     if @task.update(task_params)
       redirect_to tasks_url, notice: "Task Updated!"
     else

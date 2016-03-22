@@ -1,17 +1,23 @@
 class VisitsController < ApplicationController
-  before_action :find_visit
+  around_action :visit_and_task
 
   def update
-    @visit.update({user_id: session[:user_id], task_id: params[:task_id]}.merge params.require(:visit).permit(:note))
-    redirect_to task_url(Task.find(params[:task_id]))
+    @visit.update(visit_params)
   end
 
   def destroy
     @visit.destroy
+  end
+
+private
+
+  def visit_and_task
+    @visit = Visit.find(params[:id])
+    yield
     redirect_to task_url(Task.find(params[:task_id]))
   end
 
-  def find_visit
-    @visit = Visit.find(params[:id])
+  def visit_params
+    params.require(:visit).permit(:note).merge {user_id: session[:user_id], task_id: params[:task_id]}
   end
 end
