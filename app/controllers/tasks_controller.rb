@@ -56,7 +56,7 @@ class TasksController < ApplicationController
 
   def load_task
     unless @task = current_user.tasks.where(id: params[:id]).take
-      redirect_to root_url, alert: "Task missing!"
+      redirect_to root_url, alert: "Task Missing!"
     end
   end
 
