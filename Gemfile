@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.1.10'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.12'
+gem 'rails', '4.1.16'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -37,7 +37,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'haml'
 gem 'haml-rails'
 gem 'bootstrap-sass', '~> 3.3.3'
-gem 'sass-rails', '>= 3.2'
+gem 'sass-rails', '~> 5.0.3'
 # gem 'font-awesome-sass', '~> 4.2.0'
 gem 'font-awesome-rails', '~> 4.3.0.0'
 
