@@ -18,6 +18,6 @@ private
   end
 
   def visit_params
-    params.require(:visit).permit(:note).merge {user_id: session[:user_id], task_id: params[:task_id]}
+    params.require(:visit).permit(:note).merge({user_id: session[:user_id], task_id: params[:task_id]})
   end
 end
