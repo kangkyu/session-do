@@ -1,7 +1,7 @@
 [![Stories in Ready](https://badge.waffle.io/kangkyu/session-do.png?label=ready&title=Ready)](https://waffle.io/kangkyu/session-do)
 ## Tasks in Touch
 
-> you have said "I'll do it tomorrow" on the task for a while. but since when?
+> You have said "I'll do it every now and then" on the task for a while. But what is the last time it has happened. You've not done it since when?
 
 ### to try and use:
 open [address link](https://sessions-to-do.herokuapp.com) of this app
