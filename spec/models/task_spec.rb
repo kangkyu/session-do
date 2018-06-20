@@ -41,12 +41,12 @@ describe Task do
       Task.create(name: "family dinner",
         comment: "",
         done_at: "2015-02-04 08:00:00",
-        user_id: 3, 
+        user_id: 3,
         is_daily: true)
       task = Task.new(name: "family dinner",
         comment: "another task with a name the same",
         done_at: "2015-02-04 08:00:00",
-        user_id: 3, 
+        user_id: 3,
         is_daily: true)
       task.valid?
       expect(task.errors[:name]).not_to include("has already been taken")
