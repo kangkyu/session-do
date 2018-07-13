@@ -25,6 +25,5 @@ describe "the login process", :type => :feature do
     visit '/'
     expect(page).to_not have_content 'First time?'
     expect(page).to have_content 'Log In'
-
   end
 end
