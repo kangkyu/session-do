@@ -3,8 +3,9 @@ class Task < ActiveRecord::Base
 
   belongs_to :user
   has_many :visits
-  
+
   validates :name, presence: true
+  validates :comment, length: { maximum: 255 }, allow_blank: true
 
   scope :daily, ->{ where(is_daily: true) }
   scope :put_off, ->{ where(is_daily: false)}
