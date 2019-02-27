@@ -62,7 +62,7 @@ describe Task do
       super_long_comment = "https://fullscreen.udemy.com/learn-android-application-development-y https://classroom.udacity.com/courses/ud845 https://developers.google.com/youtube/android/player/sample-applications https://fullscreen.udemy.com/data-structures-and-algorithms-deep-dive-using-java"
       task = Task.new(task_attributes(comment: super_long_comment))
       expect(task.valid?).to eq(false)
-      expect(task.errors[:comment]).to include("is too long")
+      expect(task.errors[:comment]).to include("is too long (maximum is 255 characters)")
     end
   end
 
