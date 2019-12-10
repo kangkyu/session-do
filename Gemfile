@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.4.5'
+ruby '2.3.8'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.7', '>= 5.0.7.2'
@@ -37,7 +37,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'haml'
 gem 'haml-rails'
 gem 'bootstrap-sass', '~> 3.4.1'
-gem 'sassc-rails', '~> 2.1.0'
+gem 'sass-rails', '~> 5.0'
 # gem 'font-awesome-sass', '~> 4.2.0'
 gem 'font-awesome-rails', '~> 4.5.0.0'
 
