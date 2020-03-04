@@ -116,7 +116,7 @@ GEM
       mini_portile2 (~> 2.4.0)
     pg (0.21.0)
     public_suffix (3.0.3)
-    puma (3.12.2)
+    puma (3.12.4)
     rack (2.0.8)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -226,7 +226,7 @@ DEPENDENCIES
   jquery-rails
   local_time (~> 1.0.0)
   pg (~> 0.21)
-  puma (~> 3.12.2)
+  puma (~> 3.12.4)
   rails (~> 5.0.7, >= 5.0.7.2)
   rails_12factor
   rspec-rails (~> 3.0)
