@@ -58,7 +58,7 @@ end
 group :production do
   gem 'pg', '>= 0.18', '< 2.0'
   gem 'rails_12factor'
-  gem 'puma', '~> 3.12.2'
+  gem 'puma', '~> 3.12.6'
 end
 
 gem 'local_time', '~> 1.0.0'
