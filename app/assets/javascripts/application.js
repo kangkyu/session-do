@@ -16,5 +16,5 @@
 //= require turbolinks
 //= require_tree .
 
-//= require local_time
+//= require local-time
 //= require bootstrap-datepicker
