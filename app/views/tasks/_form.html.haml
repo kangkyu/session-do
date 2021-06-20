@@ -8,10 +8,18 @@
         = f.text_field :name, placeholder: "name of task (required)", class: 'form-control', autofocus: true
       .form-group
         = f.text_field :comment, placeholder: "comment", class: 'form-control'
-      .checkbox
-        = f.label :is_daily do
-          = f.check_box :is_daily
-          Let's do it everyday!
+      .row
+        .col-sm-6
+          .checkbox
+            = f.label :is_daily do
+              = f.check_box :is_daily
+              Let's do it everyday!
+        .col-sm-6
+          .form-group
+            .input-group
+              = f.text_field :next, placeholder: "next when?", class: 'form-control'
+              .input-group-addon
+                days later
       .text-right
         - if !@task.new_record?
           = link_to @task, method: :delete, class: 'btn btn-danger btn-sm' do

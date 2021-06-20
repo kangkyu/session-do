@@ -58,6 +58,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:name, :comment, :done_at, :is_daily)
+    params.require(:task).permit(:name, :comment, :done_at, :is_daily, :next)
   end
 end
