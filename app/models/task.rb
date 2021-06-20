@@ -1,11 +1,10 @@
 class Task < ActiveRecord::Base
-  after_initialize :done_at_init
-
   belongs_to :user
   has_many :visits
 
   validates :name, presence: true
   validates :comment, length: { maximum: 255 }, allow_blank: true
+  validates :later, numericality: { greater_than: 0 }, allow_nil: true
 
   scope :daily, ->{ where(is_daily: true) }
   scope :put_off, ->{ where(is_daily: false)}
@@ -22,7 +21,19 @@ class Task < ActiveRecord::Base
     time_passed_by.abs.to_i/2
   end
 
-  def done_at_init
-    self.done_at ||= Time.now.in_time_zone
+  def with_interval?
+    is_daily || later.present?
+  end
+
+  def start_done_at
+    self.done_at =
+      if later.present?
+        Time.now.in_time_zone + later.days
+      elsif is_daily
+        Time.now.in_time_zone + 1.day
+      else
+        Time.now.in_time_zone
+      end
+    self
   end
 end

@@ -11,7 +11,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = current_user.tasks.new(task_params)
+    @task = current_user.tasks.new(task_params).start_done_at
     if @task.save
       redirect_to tasks_url, notice: "Task Added!"
     else
@@ -26,14 +26,7 @@ class TasksController < ApplicationController
   end
 
   def clear
-    @task.update(
-      done_at:
-        if @task.is_daily
-          Date.today + 1
-        else
-          Time.now.in_time_zone
-        end
-    )
+    @task.start_done_at.save
     redirect_to tasks_url, notice: "Task Visited!"
   end
 
@@ -58,6 +51,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:name, :comment, :done_at, :is_daily)
+    params.require(:task).permit(:name, :comment, :done_at, :is_daily, :later)
   end
 end

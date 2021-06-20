@@ -1,9 +1,6 @@
 = render 'layouts/tab_bar', title: "Tasks in touch"
 
 .row
-  .col-md-5.col-md-offset-1.col-sm-6
+  .col-md-8.col-md-offset-2.col-sm-6.col-sm-offset-3
     .text-center
-      = render(@tasks.daily) || "You have no dailies."
-  .col-md-5.col-sm-6
-    .text-center
-      = render(@tasks.put_off) || "You don't have any task to do."
+      = render(@tasks) || "You don't have any task to do."
