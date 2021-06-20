@@ -12,6 +12,7 @@ def task_attributes(overrides={})
     comment: "",
     done_at: "2015-02-04 08:00:00",
     user_id: 3,
-    is_daily: true
+    is_daily: true,
+    later: nil
   }.merge(overrides)
 end

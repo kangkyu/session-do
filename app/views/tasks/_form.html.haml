@@ -17,11 +17,13 @@
         .col-sm-6
           .form-group
             .input-group
-              = f.text_field :next, placeholder: "next when?", class: 'form-control'
+              = f.text_field :later, placeholder: "next when?", class: 'form-control'
               .input-group-addon
                 days later
-      .text-right
-        - if !@task.new_record?
-          = link_to @task, method: :delete, class: 'btn btn-danger btn-sm' do
-            - fa_icon('times', text: 'Delete')
-        = f.submit (@task.new_record? ? 'Add' : 'Update'), class: 'btn btn-default btn-sm'
+      .row
+        .col-xs-6
+          - if !@task.new_record?
+            = link_to @task, method: :delete, class: 'btn btn-danger btn-sm' do
+              - fa_icon('times', text: 'Delete')
+        .col-xs-6.text-right
+          = f.submit (@task.new_record? ? 'Add' : 'Update'), class: 'btn btn-default btn-sm'

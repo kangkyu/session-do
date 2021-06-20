@@ -1,7 +1,7 @@
 module TasksHelper
 
   def task_name(task)
-    task_name_class = task.is_daily ? "task-daily" : "task-non-daily"
+    task_name_class = task.with_interval? ? "task-daily" : "task-non-daily"
     content_tag(:span, truncate(task.name), class: task_name_class, id: 'task-name', title: task.name)
   end
 
@@ -12,7 +12,7 @@ module TasksHelper
   end
 
   def progress_bar_tag(task)
-    bar_color_class = task.time_passed_by < 0 ? "progress-bar-warning" : task.is_daily ? "progress-bar-success" : "progress-bar-primary"
+    bar_color_class = task.time_passed_by < 0 ? "progress-bar-success" : task.with_interval? ? "progress-bar-warning" : "progress-bar-primary"
     float_style_value = task.time_passed_by < 0 ? "float: right;" : ""
     content_tag(:div, "",
       "aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => task.bar_length,

@@ -25,6 +25,15 @@ describe Task do
     end
   end
 
+  describe '.start_done_at' do
+    it "sets done_at value" do
+      task = Task.new(task_attributes(later: 3))
+      task.start_done_at
+      expect(task).not_to be_persisted
+      expect(task.done_at.to_date).to eq Date.today + 3
+    end
+  end
+
   context "Validation" do
     it "is valid with all the attributes in place" do
       task = Task.new(task_attributes)
@@ -63,6 +72,13 @@ describe Task do
       task = Task.new(task_attributes(comment: super_long_comment))
       expect(task.valid?).to eq(false)
       expect(task.errors[:comment]).to include("is too long (maximum is 255 characters)")
+    end
+
+    it "is invalid unless later is positive integer" do
+      task = Task.new(task_attributes(later: "abc"))
+      expect(task).not_to be_valid
+      task = Task.new(task_attributes(later: -1))
+      expect(task).not_to be_valid
     end
   end
 
