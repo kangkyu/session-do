@@ -1,0 +1,13 @@
+= render 'layouts/tab_bar', title: "Tasks in touch"
+
+.row
+  .col-md-8.col-md-offset-2.col-sm-6.col-sm-offset-3
+    .text-center
+      = render @task
+
+      - if @task.visits.any?
+        %ul.list-group
+        - @task.visits.each do |visit|
+          %li.list-group-item
+            = visit.created_at
+            = visit.note

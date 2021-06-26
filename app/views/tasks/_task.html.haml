@@ -5,6 +5,7 @@
         = task_name(task)
         %small
           %code on #{task_date(task)}
+        = link_to 'show', task
         %span{style:"margin-left: 2px;"}= task.comment
     .col-md-5.col-sm-4.col-xs-5
       %p.text-right

@@ -37,7 +37,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'haml'
 gem 'haml-rails'
 gem 'bootstrap-sass', '~> 3.4.1'
-gem 'sass-rails', '~> 5.0.0'
+gem 'sassc-rails', '>= 2.1.0'
 # gem 'font-awesome-sass', '~> 4.2.0'
 gem 'font-awesome-rails', '~> 4.7.0.0'
 

@@ -1,6 +1,8 @@
 class TasksController < ApplicationController
   before_action :require_login
-  before_action :load_task, only: [:destroy, :clear, :edit, :update]
+  before_action :load_task, only: [
+    :destroy, :clear, :edit, :update, :show
+  ]
 
   def index
     @tasks = current_user.tasks.sorted_by_done_at
@@ -29,7 +31,11 @@ class TasksController < ApplicationController
   def clear
     @task.restart_done_at
     @task.save
+    @task.visits << Visit.new(user_id: current_user.id, task: @task)
     redirect_to tasks_url, notice: "Task Visited!"
+  end
+
+  def show
   end
 
   def edit
