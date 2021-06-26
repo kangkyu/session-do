@@ -5,9 +5,12 @@
     .text-center
       = render @task
 
-      - if @task.visits.any?
-        %ul.list-group
-        - @task.visits.each do |visit|
-          %li.list-group-item
-            = visit.created_at
-            = visit.note
+    - if @task.visits.any?
+      %ul.list-group
+      - @task.visits.each do |visit|
+        %li.list-group-item
+          %span.badge
+            = link_to task_visit_path(@task, visit), method: :delete do
+              &times;
+          = visit.created_at
+          = visit.note

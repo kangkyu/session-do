@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     member do
       post 'clear'
     end
+    resources :visits, only: :destroy
   end
   root to: 'tasks#index'
 
