@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   validates :password, presence: true
 
-  validates :email, presence: true,                   
+  validates :email, presence: true,
                   format: /\A\S+@\S+\z/,
                   uniqueness: { case_sensitive: false }
 end
