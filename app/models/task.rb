@@ -26,14 +26,19 @@ class Task < ActiveRecord::Base
   end
 
   def start_done_at
+    timestamp = done_at || Time.now.in_time_zone
     self.done_at =
       if later.present?
-        Time.now.in_time_zone + later.days
+        timestamp + later.days
       elsif is_daily
-        Time.now.in_time_zone + 1.day
+        timestamp + 1.day
       else
-        Time.now.in_time_zone
+        timestamp
       end
-    self
+  end
+
+  def restart_done_at
+    self.done_at = nil
+    start_done_at
   end
 end

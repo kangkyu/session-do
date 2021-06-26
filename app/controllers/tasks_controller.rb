@@ -11,7 +11,8 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = current_user.tasks.new(task_params).start_done_at
+    @task = current_user.tasks.new(task_params)
+    @task.start_done_at
     if @task.save
       redirect_to tasks_url, notice: "Task Added!"
     else
@@ -26,7 +27,8 @@ class TasksController < ApplicationController
   end
 
   def clear
-    @task.start_done_at.save
+    @task.restart_done_at
+    @task.save
     redirect_to tasks_url, notice: "Task Visited!"
   end
 
