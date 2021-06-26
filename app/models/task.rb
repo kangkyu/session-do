@@ -5,6 +5,7 @@ class Task < ActiveRecord::Base
   validates :name, presence: true
   validates :comment, length: { maximum: 255 }, allow_blank: true
   validates :later, numericality: { greater_than: 0 }, allow_nil: true
+  validates :done_at, presence: true, on: :update
 
   scope :daily, ->{ where(is_daily: true) }
   scope :put_off, ->{ where(is_daily: false)}
