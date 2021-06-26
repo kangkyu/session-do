@@ -5,6 +5,14 @@ module TasksHelper
     content_tag(:span, truncate(task.name), class: task_name_class, id: 'task-name', title: task.name)
   end
 
+  def task_date(task)
+    if task.done_at > Time.now.in_time_zone.beginning_of_year
+      task.done_at.strftime("%b %d")
+    else
+      task.done_at.strftime("%b %d, %Y")
+    end
+  end
+
   def fa_icon_with_removed_text(icon_name, options={})
     text = options.delete(:text)
     right = options.delete(:right)
