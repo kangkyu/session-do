@@ -23,5 +23,7 @@ module SessionsToDo
     config.generators do |g|
       g.test_framework false
     end
+
+    config.active_record.sqlite3.represent_boolean_as_integer = true
   end
 end
