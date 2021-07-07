@@ -3,7 +3,7 @@ class VisitOldTasks < ActiveRecord::Migration[5.2]
     reversible do |dir|
       Task.find_each do |t|
         dir.up do
-          if t.visits.empty?
+          if t.user.present? && t.visits.empty?
             t.visits << t.visits.build(user_id: t.user.id)
             t.visits.last.update(created_at: t.done_at, updated_at: t.done_at)
           end
