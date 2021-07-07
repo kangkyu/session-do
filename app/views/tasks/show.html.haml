@@ -1,0 +1,16 @@
+= render 'layouts/tab_bar', title: "Tasks in touch"
+
+.row
+  .col-md-8.col-md-offset-2.col-sm-6.col-sm-offset-3
+    .text-center
+      = render @task
+
+    - if @task.visits.any?
+      %ul.list-group
+      - @task.visits.each do |visit|
+        %li.list-group-item
+          %span.badge
+            = link_to task_visit_path(@task, visit), method: :delete do
+              &times;
+          = visit.created_at.in_time_zone.strftime("%A, %Y-%m-%d")
+          = visit.note

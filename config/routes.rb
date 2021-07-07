@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   get 'welcome/guide'
 
-  resources :tasks, except: :show do
+  resources :tasks do
     member do
       post 'clear'
     end
+    resources :visits, only: :destroy
   end
   root to: 'tasks#index'
 

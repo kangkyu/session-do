@@ -2,7 +2,10 @@
   .row
     .col-md-7.col-sm-8.col-xs-7
       %p.text-left
-        = task_name(task)
+        - if current_cont?('tasks', 'show')
+          = task_name(task)
+        - else
+          = link_to task_name(task), task
         %small
           %code on #{task_date(task)}
         %span{style:"margin-left: 2px;"}= task.comment

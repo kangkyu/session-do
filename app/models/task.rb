@@ -1,10 +1,11 @@
 class Task < ActiveRecord::Base
   belongs_to :user
-  has_many :visits
+  has_many :visits, dependent: :destroy
 
   validates :name, presence: true
   validates :comment, length: { maximum: 255 }, allow_blank: true
   validates :later, numericality: { greater_than: 0 }, allow_nil: true
+  validates :done_at, presence: true, on: :update
 
   scope :daily, ->{ where(is_daily: true) }
   scope :put_off, ->{ where(is_daily: false)}
@@ -23,6 +24,13 @@ class Task < ActiveRecord::Base
 
   def with_interval?
     is_daily || later.present?
+  end
+
+  def visit!
+    restart_done_at
+    if save
+      visits << Visit.new(user_id: user.id, task: self)
+    end
   end
 
   def start_done_at
