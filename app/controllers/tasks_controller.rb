@@ -29,9 +29,7 @@ class TasksController < ApplicationController
   end
 
   def clear
-    @task.restart_done_at
-    @task.save
-    @task.visits << Visit.new(user_id: current_user.id, task: @task)
+    @task.visit!
     redirect_to tasks_url, notice: "Task Visited!"
   end
 

@@ -26,6 +26,13 @@ class Task < ActiveRecord::Base
     is_daily || later.present?
   end
 
+  def visit!
+    restart_done_at
+    if save
+      visits << Visit.new(user_id: user.id, task: self)
+    end
+  end
+
   def start_done_at
     timestamp = done_at || Time.now.in_time_zone
     self.done_at =
