@@ -13,7 +13,6 @@
       %p.text-right
         = link_to fa_icon_with_removed_text('check', text: 'Visit'), clear_task_path(task), method: "post", class: 'btn btn-default btn-sm'
         = link_to fa_icon_with_removed_text('bolt', text: 'Edit'), edit_task_path(task), class: 'btn btn-warning btn-sm'
-  .progress
+  .overlap{style: "margin-bottom: 10px;"}
     = progress_bar_tag(task)
-    .text-center
-      = progress_bar_text(task)
+    = progress_bar_text(task)

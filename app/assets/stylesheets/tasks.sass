@@ -2,17 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.progress
-  position: relative
+.overlap
+  display: grid
 
-.progress div.progress-bar.progress-bar-primary
-  background-color: DodgerBlue
-
-.progress span
-  position: absolute
-  display: block
-  width: 100%
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000
+.overlap > *
+  grid-column-start: 1
+  grid-row-start: 1
 
 // Progress bars with centered text
 .bar-text-color-white
@@ -29,10 +24,12 @@ li span.badge a
   color: white
 
 .task-daily
-  @include button-variant($success, white, white)
+  // @include button-variant($success, white, white)
+  color: $success
 
 .task-non-daily
-  @include button-variant($primary, white, white)
+  // @include button-variant($primary, white, white)
+  color: $primary
 
 #task-name
   font-weight: bold !important
