@@ -58,8 +58,6 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
-    archive-zip (0.12.0)
-      io-like (~> 0.3.0)
     autoprefixer-rails (10.4.2.0)
       execjs (~> 2)
     bcrypt (3.1.16)
@@ -81,10 +79,6 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
-    childprocess (4.1.0)
-    chromedriver-helper (2.1.1)
-      archive-zip (~> 0.10)
-      nokogiri (~> 1.8)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -119,7 +113,6 @@ GEM
       ruby_parser (~> 3.5)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
-    io-like (0.3.1)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -193,7 +186,6 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (2.2.1)
-    rexml (3.2.5)
     rspec-core (3.9.3)
       rspec-support (~> 3.9.3)
     rspec-expectations (3.9.4)
@@ -214,7 +206,6 @@ GEM
     ruby_dep (1.5.0)
     ruby_parser (3.18.1)
       sexp_processor (~> 4.16)
-    rubyzip (2.3.2)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -234,10 +225,6 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    selenium-webdriver (4.1.0)
-      childprocess (>= 0.5, < 5.0)
-      rexml (~> 3.2, >= 3.2.5)
-      rubyzip (>= 1.2.2)
     sexp_processor (4.16.0)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
@@ -278,7 +265,6 @@ DEPENDENCIES
   bootstrap (~> 4.6.1)
   bootstrap-datepicker-rails
   capybara (>= 2.15)
-  chromedriver-helper
   coffee-rails (~> 4.2)
   font-awesome-rails (~> 4.7.0.0)
   haml
@@ -293,7 +279,6 @@ DEPENDENCIES
   rails_12factor
   rspec-rails (~> 3.0)
   sass-rails (~> 5.0)
-  selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
   sprockets-rails (>= 2.3.2)
