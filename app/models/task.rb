@@ -15,7 +15,7 @@ class Task < ActiveRecord::Base
   scope :reverse_of_id, ->{ order('id desc') }
 
   def time_passed_by
-    (Time.now.in_time_zone - done_at).to_i/3600
+    (Time.current - done_at).to_i/3600
   end
 
   def bar_length
@@ -34,7 +34,7 @@ class Task < ActiveRecord::Base
   end
 
   def start_done_at
-    timestamp = done_at || Time.now.in_time_zone
+    timestamp = done_at || Time.current
     self.done_at =
       if later.present?
         timestamp + later.days

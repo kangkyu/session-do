@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
-ruby '2.6.5'
+ruby '2.7.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.4.6'
+gem 'rails', '~> 7.0.2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -48,7 +48,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-rails', '~> 4.0'
 end
 
 group :test do
