@@ -106,9 +106,12 @@ describe Task do
       expect(task.errors[:comment]).to include("is too long (maximum is 255 characters)")
     end
 
-    it "is invalid unless later is positive integer" do
+    it "is invalid if later is string" do
       task = Task.new(task_attributes(later: "abc"))
       expect(task).not_to be_valid
+    end
+
+    it "is invalid if later is negative integer" do
       task = Task.new(task_attributes(later: -1))
       expect(task).not_to be_valid
     end
