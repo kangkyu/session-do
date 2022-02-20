@@ -3,6 +3,8 @@ ruby '2.6.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.6'
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -33,10 +35,14 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'haml'
 gem 'haml-rails'
-gem 'bootstrap-sass', '~> 3.4.1'
-gem 'sassc-rails', '>= 2.1.0'
+gem 'bootstrap', '~> 4.6.1'
+gem 'sprockets-rails', '>= 2.3.2'
+gem 'jquery-rails'
 # gem 'font-awesome-sass', '~> 4.2.0'
 gem 'font-awesome-rails', '~> 4.7.0.0'
+
+gem 'local_time', '~> 2.0.0'
+gem 'bootstrap-datepicker-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -46,7 +52,11 @@ group :development, :test do
 end
 
 group :test do
-  gem 'capybara'
+  # Adds support for Capybara system testing and selenium driver
+  gem 'capybara', '>= 2.15'
+  gem 'selenium-webdriver'
+  # Easy installation and use of chromedriver to run system tests with Chrome
+  gem 'chromedriver-helper'
 end
 
 group :development do
@@ -62,6 +72,3 @@ group :production do
   gem 'rails_12factor'
   gem 'puma'
 end
-
-gem 'local_time', '~> 2.0.0'
-gem 'bootstrap-datepicker-rails'
