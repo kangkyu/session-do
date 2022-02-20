@@ -19,9 +19,6 @@ gem 'jbuilder', '~> 2.5'
 # bundle exec rake doc:rails generates the API under doc/api.
 # gem 'sdoc', '~> 0.4.0',          group: :doc
 
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
-
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
@@ -41,6 +38,9 @@ gem 'sassc-rails', '>= 2.1.0'
 # gem 'font-awesome-sass', '~> 4.2.0'
 gem 'font-awesome-rails', '~> 4.7.0.0'
 
+# Reduces boot times through caching; required in config/boot.rb
+gem 'bootsnap', '>= 1.1.0', require: false
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 end
@@ -51,6 +51,10 @@ end
 
 group :development do
   gem 'sqlite3'
+
+  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 group :production do
