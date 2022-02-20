@@ -20,17 +20,20 @@ module TasksHelper
   end
 
   def progress_bar_tag(task)
-    bar_color_class = task.time_passed_by < 0 ? "progress-bar-success" : task.with_interval? ? "progress-bar-warning" : "progress-bar-primary"
+    bar_color_class = task.time_passed_by < 0 ? "bg-success" : task.with_interval? ? "bg-warning" : "bg-primary"
     float_style_value = task.time_passed_by < 0 ? "float: right;" : ""
-    content_tag(:div, "",
-      "aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => task.bar_length,
-      :role => "progressbar", :style => "width: #{task.bar_length}%; #{float_style_value}",
-      class: "progress-bar #{bar_color_class}")
+    content_tag(:div, "", class: "progress", style: "height: 16px;") do
+      content_tag(:div, "",
+        "aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => task.bar_length,
+        :role => "progressbar", :style => "width: #{task.bar_length}%; #{float_style_value}",
+        class: "progress-bar #{bar_color_class}")
+    end
   end
 
   def progress_bar_text(task)
     last_word = task.time_passed_by < 0 ? " from now" : " ago"
-    content_tag(:span, distance_of_time_in_words_to_now(task.done_at).concat(last_word), class: "bar-text-color-white")
+    content_tag(
+      :div, distance_of_time_in_words_to_now(task.done_at).concat(last_word),
+      class: "bar-text-color-white", style: "display: block; width: 100%;")
   end
-
 end
