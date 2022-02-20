@@ -6,7 +6,7 @@ module TasksHelper
   end
 
   def task_date(task)
-    if task.done_at > Time.now.in_time_zone.beginning_of_year
+    if task.done_at > Time.current.beginning_of_year
       task.done_at.strftime("%b %d")
     else
       task.done_at.strftime("%b %d, %Y")
