@@ -48,23 +48,23 @@ describe Task do
     end
   end
 
-  # describe '.start_done_at' do
-  #   it "sets done_at value with later" do
-  #     timestamp = Time.new(2010, 10, 10)
-  #     task = Task.new(done_at: timestamp, later: 3)
-  #     task.start_done_at
-  #     expect(task).not_to be_persisted
-  #     expect(task.done_at.to_date).to eq timestamp.to_date + 3
-  #   end
+  describe '.start_done_at' do
+    it "sets done_at value with later" do
+      timestamp = Time.new(2010, 10, 10)
+      task = Task.new(done_at: timestamp, later: 3)
+      task.start_done_at
+      expect(task).not_to be_persisted
+      expect(task.done_at.to_date).to eq timestamp.to_date + 3
+    end
 
-  #   it "sets done_at value without later" do
-  #     timestamp = Time.new(2010, 10, 10)
-  #     task = Task.new(done_at: timestamp, later: nil)
-  #     task.start_done_at
-  #     expect(task).not_to be_persisted
-  #     expect(task.done_at.to_date).to eq timestamp.to_date
-  #   end
-  # end
+    it "sets done_at value without later" do
+      timestamp = Time.new(2010, 10, 10)
+      task = Task.new(done_at: timestamp, later: nil)
+      task.start_done_at
+      expect(task).not_to be_persisted
+      expect(task.done_at.to_date).to eq timestamp.to_date
+    end
+  end
 
   context "Validation" do
     it "is valid with all the attributes in place" do
