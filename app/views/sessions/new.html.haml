@@ -2,7 +2,7 @@
 %h2.text-center Log In
 %p
 .row
-  .col-md-6.offset-md-3.col-sm-8.offset-sm-2.col-xs-12
+  .col-md-6.offset-md-3.col-sm-8.offset-sm-2.col-12
     = form_tag session_path, class: 'form-group', id: "session" do |f|
       .form-group
         = email_field_tag :email, nil, placeholder: "email", class: 'form-control'
