@@ -1,5 +1,5 @@
 .row
-  .col-md-6.offset-md-3.col-sm-8.offset-sm-2.col-xs-12
+  .col-md-6.offset-md-3.col-sm-8.offset-sm-2.col-12
     = form_for @task, class: 'form-inline' do |f|
       .form-group
         = f.text_field :done_at, placeholder: "task date", value: f.object.done_at.try(:strftime, "%Y-%m-%d"), class: 'form-control', "data-provide" => 'datepicker', "data-date-format" => "yyyy-mm-dd"
@@ -21,9 +21,9 @@
               .input-group-addon
                 days later
       .row
-        .col-xs-6
+        .col-6
           - if !@task.new_record?
             = link_to @task, method: :delete, class: 'btn btn-danger btn-sm' do
               - fa_icon('times', text: 'Delete')
-        .col-xs-6.text-right
+        .col-6.text-right
           = f.submit (@task.new_record? ? 'Add' : 'Update'), class: 'btn btn-default btn-sm'
