@@ -8,7 +8,7 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.2'
+# gem 'coffee-rails', '~> 4.2'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
@@ -41,7 +41,6 @@ gem 'sprockets-rails', '>= 2.3.2'
 # gem 'font-awesome-sass', '~> 4.2.0'
 gem 'font-awesome-rails', '~> 4.7.0.0'
 
-gem 'local_time', '~> 2.0.0'
 gem 'bootstrap-datepicker-rails'
 
 # Reduces boot times through caching; required in config/boot.rb

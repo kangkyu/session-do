@@ -89,13 +89,6 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
-    coffee-rails (4.2.2)
-      coffee-script (>= 2.2.0)
-      railties (>= 4.0.0)
-    coffee-script (2.4.1)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.12.2)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
     diff-lcs (1.5.0)
@@ -136,7 +129,6 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    local_time (2.0.1)
     loofah (2.14.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -293,14 +285,12 @@ DEPENDENCIES
   bootstrap (~> 4.6.1)
   bootstrap-datepicker-rails
   capybara (>= 2.15)
-  coffee-rails (~> 4.2)
   font-awesome-rails (~> 4.7.0.0)
   haml
   haml-rails
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
-  local_time (~> 2.0.0)
   pg (>= 0.18, < 2.0)
   puma
   rails (~> 7.0.2)
