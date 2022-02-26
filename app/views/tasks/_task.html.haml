@@ -11,7 +11,6 @@
             %code on #{task_date(task)}
           %span{style:"margin-left: 2px;"}
             = task.comment
-            = current_second
       .col-md-5.col-sm-4.col-5
         .text-right
           = link_to fa_icon_with_removed_text('check', text: 'Done'), clear_task_path(task), method: "post", remote: true, class: 'btn btn-default btn-sm'
