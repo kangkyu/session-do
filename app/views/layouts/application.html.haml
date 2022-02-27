@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title Tasks-In-Touch
+    %title Tasks In Touch
 
     %meta{name:"viewport", content:"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"}
     = favicon_link_tag '/favicon.ico'
@@ -14,5 +14,6 @@
     = render 'layouts/flash', flash: flash
 
     .container
+      = render 'layouts/tab_bar'
       = yield
       = render 'layouts/page_bottom'
