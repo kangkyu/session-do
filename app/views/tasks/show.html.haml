@@ -9,6 +9,6 @@
       %ul.list-group
       - @task.visits.each do |visit|
         %li.list-group-item
-          = button_to fa_icon('times'), task_visit_path(@task, visit), method: :delete, class: 'float-right no-border badge badge-danger'
+          = button_to fa_icon('times'), task_visit_path(@task, visit), method: :delete, class: 'float-right border-0 badge badge-danger'
           = visit.created_at.in_time_zone.strftime("%A, %Y-%m-%d")
           = visit.note

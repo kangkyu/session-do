@@ -2,7 +2,7 @@
   .col-md-6.offset-md-3.col-sm-8.offset-sm-2.col-12
     = form_for @task, class: 'form-inline' do |f|
       .form-group
-        = f.text_field :done_at, placeholder: "task date", value: f.object.done_at.try(:strftime, "%Y-%m-%d"), id: 'datepicker', class: 'form-control', data: { provide: 'datepicker', date_format: "yyyy-mm-dd" }
+        = f.text_field :done_at, placeholder: "task date", value: f.object.done_at.try(:strftime, "%Y-%m-%d"), class: 'form-control', data: { provide: 'datepicker', date_format: "yyyy-mm-dd" }
       .form-group.required
         = f.text_field :name, placeholder: "name of task (required)", class: 'form-control', autofocus: true
       .form-group
