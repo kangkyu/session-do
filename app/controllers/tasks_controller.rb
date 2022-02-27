@@ -30,7 +30,6 @@ class TasksController < ApplicationController
 
   def clear
     @task.visit!
-
     render @task
   end
 
