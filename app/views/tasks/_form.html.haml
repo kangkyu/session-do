@@ -19,9 +19,11 @@
               %span.input-group-text
                 days later
       .row
-        .col-6
-          - if !@task.new_record?
-            = button_to @task, method: :delete, class: 'btn btn-danger btn-sm' do
-              - fa_icon('times', text: 'Delete')
-        .col-6.text-right
+        .col-12.text-right
           = f.submit (@task.new_record? ? 'Add' : 'Update'), class: 'btn btn-default btn-sm'
+
+    .row
+      .col-12
+        - if !@task.new_record?
+          = button_to @task, method: :delete, class: 'btn btn-danger btn-sm' do
+            - fa_icon('times', text: 'Delete')
