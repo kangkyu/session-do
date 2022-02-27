@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       redirect_to root_url, notice: "Update successful"
     else
       flash.now.alert = "Please try again!"
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Registration successful"
     else
       flash.now.alert = "Please try again!"
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

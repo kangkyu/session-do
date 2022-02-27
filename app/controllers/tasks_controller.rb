@@ -19,7 +19,7 @@ class TasksController < ApplicationController
       redirect_to tasks_url, notice: "Task Added!"
     else
       flash.now.alert = "Please try again!"
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -44,7 +44,7 @@ class TasksController < ApplicationController
       redirect_to tasks_url, notice: "Task Updated!"
     else
       flash.now.alert = "Please try again!"
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
