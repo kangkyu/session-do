@@ -2,28 +2,26 @@
   .col-md-6.offset-md-3.col-sm-8.offset-sm-2.col-12
     = form_for @task, class: 'form-inline' do |f|
       .form-group
-        = f.text_field :done_at, placeholder: "task date", value: f.object.done_at.try(:strftime, "%Y-%m-%d"), class: 'form-control', "data-provide" => 'datepicker', "data-date-format" => "yyyy-mm-dd"
-        / = f.label 'To Do Time Point'
+        = f.text_field :done_at, placeholder: "task date", value: f.object.done_at.try(:strftime, "%Y-%m-%d"), class: 'form-control', data: { provide: 'datepicker', date_format: "yyyy-mm-dd" }
       .form-group.required
         = f.text_field :name, placeholder: "name of task (required)", class: 'form-control', autofocus: true
       .form-group
         = f.text_field :comment, placeholder: "comment", class: 'form-control'
-      .row
-        .col-sm-6
-          .checkbox
-            = f.label :is_daily do
-              = f.check_box :is_daily
-              Let's do it everyday!
-        .col-sm-6
-          .form-group
-            .input-group
-              = f.text_field :later, placeholder: "next when?", class: 'form-control'
-              .input-group-addon
+      .d-flex.justify-content-between
+        .form-check
+          = f.check_box :is_daily, class: 'form-check-input'
+          = f.label :is_daily, class: 'form-check-label' do
+            Let's do it everyday!
+        .form-group
+          .input-group
+            = f.text_field :later, placeholder: "next when?", class: 'form-control'
+            .input-group-append
+              %span.input-group-text
                 days later
       .row
         .col-6
           - if !@task.new_record?
-            = link_to @task, method: :delete, class: 'btn btn-danger btn-sm' do
+            = button_to @task, method: :delete, class: 'btn btn-danger btn-sm' do
               - fa_icon('times', text: 'Delete')
         .col-6.text-right
           = f.submit (@task.new_record? ? 'Add' : 'Update'), class: 'btn btn-default btn-sm'

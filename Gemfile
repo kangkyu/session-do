@@ -7,15 +7,11 @@ gem 'rails', '~> 7.0.2'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.2'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -41,8 +37,10 @@ gem 'sprockets-rails', '>= 2.3.2'
 # gem 'font-awesome-sass', '~> 4.2.0'
 gem 'font-awesome-rails', '~> 4.7.0.0'
 
-gem 'local_time', '~> 2.0.0'
 gem 'bootstrap-datepicker-rails'
+
+gem 'turbo-rails'
+gem 'importmap-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
