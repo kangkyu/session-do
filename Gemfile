@@ -44,6 +44,7 @@ gem 'font-awesome-rails', '~> 4.7.0.0'
 gem 'bootstrap-datepicker-rails'
 
 gem 'turbo-rails'
+gem 'importmap-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

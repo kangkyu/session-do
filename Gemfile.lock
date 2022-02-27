@@ -117,6 +117,9 @@ GEM
       ruby_parser (~> 3.5)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
+    importmap-rails (1.0.3)
+      actionpack (>= 6.0.0)
+      railties (>= 6.0.0)
     io-wait (0.2.1)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
@@ -288,6 +291,7 @@ DEPENDENCIES
   font-awesome-rails (~> 4.7.0.0)
   haml
   haml-rails
+  importmap-rails
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
