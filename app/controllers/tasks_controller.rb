@@ -30,7 +30,8 @@ class TasksController < ApplicationController
 
   def clear
     @task.visit!
-    redirect_to tasks_url, notice: "Task Visited!"
+
+    render @task
   end
 
   def show
