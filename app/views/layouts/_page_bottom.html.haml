@@ -1,8 +1,8 @@
 - if current_user
   .nav.justify-content-center
     .nav-item
-      = link_to current_user.username.capitalize, edit_user_path(current_user), class: 'btn btn-non-daily'
+      = link_to current_user.username.capitalize, edit_user_path(current_user), class: 'btn'
     .nav-item
-      = button_to "Log Out", session_path, method: :delete, class: 'btn btn-non-daily'
+      = button_to "Log Out", session_path, method: :delete, class: 'btn'
 %hr
 Tasks in Touch &copy; 2014
