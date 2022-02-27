@@ -21,11 +21,11 @@ module TasksHelper
 
   def progress_bar_tag(task)
     bar_color_class = task.time_passed_by < 0 ? "bg-success" : task.with_interval? ? "bg-warning" : "bg-primary"
-    float_style_value = task.time_passed_by < 0 ? "float: right;" : ""
-    content_tag(:div, "", class: "progress", style: "height: 16px;") do
+    float_class = task.time_passed_by < 0 ? "flex-row-reverse" : ""
+    content_tag(:div, "", class: "progress #{float_class}", style: "height: 16px;") do
       content_tag(:div, "",
         "aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => task.bar_length,
-        :role => "progressbar", :style => "width: #{task.bar_length}%; #{float_style_value}",
+        :role => "progressbar", :style => "width: #{task.bar_length}%;",
         class: "progress-bar #{bar_color_class}")
     end
   end
