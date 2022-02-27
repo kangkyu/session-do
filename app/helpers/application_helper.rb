@@ -15,12 +15,4 @@ module ApplicationHelper
       controller_name == controller
     end
   end
-
-  def content_id
-    "#{controller_name.underscore}_#{action_name}"
-  end
-
-  def current_second
-    "00:#{Time.now.strftime('%S')}"
-  end
 end

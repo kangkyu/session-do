@@ -11,7 +11,6 @@
             %code on #{task_date(task)}
           %span{style:"margin-left: 2px;"}
             = task.comment
-            = current_second
       .col-md-5.col-sm-4.col-5
         .text-right.action-buttons
           = link_to fa_icon_with_removed_text('bolt', text: 'Edit'), edit_task_path(task), class: 'btn btn-outline-warning btn-sm float-right'
