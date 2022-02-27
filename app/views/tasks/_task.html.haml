@@ -1,6 +1,6 @@
 = turbo_frame_tag dom_id(task) do
   .task
-    .row{style: "margin-bottom: 10px"}
+    .row{style: "margin-bottom: 8px"}
       .col-md-7.col-sm-8.col-7
         .text-left
           - if current_cont?('tasks', 'show')
@@ -11,10 +11,11 @@
             %code on #{task_date(task)}
           %span{style:"margin-left: 2px;"}
             = task.comment
+            = current_second
       .col-md-5.col-sm-4.col-5
-        .text-right
-          = link_to fa_icon_with_removed_text('check', text: 'Done'), clear_task_path(task), method: "post", remote: true, class: 'btn btn-default btn-sm'
-          = link_to fa_icon_with_removed_text('bolt', text: 'Edit'), edit_task_path(task), class: 'btn btn-warning btn-sm'
+        .text-right.action-buttons
+          = link_to fa_icon_with_removed_text('bolt', text: 'Edit'), edit_task_path(task), class: 'btn btn-outline-warning btn-sm float-right'
+          = button_to fa_icon_with_removed_text('check', text: 'Done'), clear_task_path(task), class: 'btn btn-outline-second btn-sm', form_class: 'float-right'
     .overlap
       = progress_bar_tag(task)
       = progress_bar_text(task)
