@@ -35,7 +35,7 @@ jobs:
           bundler-cache: true
       - name: Upgrade rubygems
         run: |
-          gem update --system 3.1.2 --no-document
+          gem update --system 3.1.2 --no-document && gem update --system --no-document
           gem update bundler --no-document
           bundle install --jobs 4 --retry 3
       # Add or replace database setup steps here
