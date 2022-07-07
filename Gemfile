@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
-ruby '2.7.3'
+
+ruby '2.7.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 7.0.2'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sassc-rails', '~> 2.1.2'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -32,7 +33,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'haml'
 gem 'haml-rails'
 gem 'bootstrap', '~> 4.6.1'
-gem 'sprockets-rails', '>= 2.3.2'
+gem 'sprockets-rails', '~> 3.4.2'
 
 # gem 'font-awesome-sass', '~> 4.2.0'
 gem 'font-awesome-rails', '~> 4.7.0.0'
