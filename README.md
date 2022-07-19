@@ -1,7 +1,8 @@
-[![Stories in Ready](https://badge.waffle.io/kangkyu/session-do.png?label=ready&title=Ready)](https://waffle.io/kangkyu/session-do)
-## Tasks in Touch
+## Tasks In Touch
 
-> You have said "I'll do it every now and then" on the task for a while. But what is the last time it has happened. You've not done it since when?
+> You have said "I'll do it every now and then" on your tasks. But do you remember when? You might ask "When was the last time I've done it" for each task (or "session"). You might say "I have done this a while ago", but how long ago?
+
+This tool is for people who want to keep the momentum about many things to do.
 
 ### to try and use:
 open [address link](https://sessions-to-do.herokuapp.com) of this app
