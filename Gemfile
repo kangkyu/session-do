@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.7.6'
+ruby '3.0.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 7.0.2'
@@ -57,14 +57,11 @@ end
 
 group :development do
   gem 'sqlite3'
-
-  gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 group :production do
   gem 'pg', '>= 0.18', '< 2.0'
   gem 'rails_12factor'
-  gem 'puma'
+  gem 'puma', '~> 5.0'
 end
