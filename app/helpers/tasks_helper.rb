@@ -33,7 +33,7 @@ module TasksHelper
   def progress_bar_text(task)
     last_word = task.time_passed_by < 0 ? " from now" : " ago"
     content_tag(
-      :div, distance_of_time_in_words_to_now(task.done_at).concat(last_word),
+      :div, distance_of_time_in_words_to_now(task.done_at) + last_word,
       class: "bar-text-color-white", style: "display: block; width: 100%;")
   end
 end
