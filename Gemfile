@@ -47,7 +47,7 @@ gem 'importmap-rails'
 gem 'bootsnap', '>= 1.18.0', require: false
 
 group :development, :test do
-  gem 'rspec-rails', '~> 5.0'
+  gem 'rspec-rails', '~> 6.0'
 end
 
 group :test do
