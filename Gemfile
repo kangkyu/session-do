@@ -56,12 +56,12 @@ group :test do
 end
 
 group :development do
-  gem 'sqlite3'
+  gem 'sqlite3', '~> 1.7.3'
   gem 'spring'
 end
 
 group :production do
-  gem 'pg', '>= 0.18', '< 2.0'
+  gem 'pg', "~> 1.1"
   gem 'rails_12factor'
 end
 
