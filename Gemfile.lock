@@ -104,6 +104,9 @@ GEM
     connection_pool (2.4.1)
     crass (1.0.6)
     date (3.3.4)
+    debug (1.9.2)
+      irb (~> 1.10)
+      reline (>= 0.3.8)
     diff-lcs (1.5.0)
     drb (2.2.1)
     erubi (1.13.0)
@@ -291,6 +294,7 @@ DEPENDENCIES
   bootstrap (~> 4.6.1)
   bootstrap-datepicker-rails
   capybara (>= 2.15)
+  debug
   font-awesome-rails (~> 4.7.0.0)
   haml
   haml-rails

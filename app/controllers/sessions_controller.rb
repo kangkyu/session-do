@@ -7,9 +7,12 @@ class SessionsController < ApplicationController
   def create
     user = User.where(email: params[:email]).take
     if user && user.authenticate(params[:password])
+      if user.auth_token.nil?
+        user.password = params[:password]
+        user.regenerate_auth_token
+      end
       session[:user_id] = user.id
-      redirect_to root_url
-      flash[:notice] = "Login successful"
+      redirect_to root_url, notice: "Login successful"
     else
       flash.now.alert = "Please try again!"
       render :new, status: :unprocessable_entity
