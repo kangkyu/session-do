@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_20_065248) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_10_002655) do
   create_table "tasks", force: :cascade do |t|
     t.string "name", limit: 255
     t.string "comment", limit: 255
@@ -28,6 +28,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_20_065248) do
     t.string "password_digest", limit: 255
     t.datetime "created_at", precision: nil
     t.datetime "updated_at", precision: nil
+    t.string "auth_token"
+    t.index ["auth_token"], name: "index_users_on_auth_token", unique: true
   end
 
   create_table "visits", force: :cascade do |t|
