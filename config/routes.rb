@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   get 'welcome/guide'
 
+  namespace :api do
+    resources :tasks
+  end
+
   resources :tasks do
     member do
       post 'clear'

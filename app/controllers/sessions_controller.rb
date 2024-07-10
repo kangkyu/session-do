@@ -1,26 +1,46 @@
 class SessionsController < ApplicationController
+  before_action :require_login, only: [:destroy]
 
   def new
     redirect_to tasks_url if current_user
   end
 
   def create
-    user = User.where(email: params[:email]).take
-    if user && user.authenticate(params[:password])
+    user = User.find_by(email: params[:email])
+    if user&.authenticate(params[:password])
       if user.auth_token.nil?
-        user.password = params[:password]
         user.regenerate_auth_token
       end
-      session[:user_id] = user.id
-      redirect_to root_url, notice: "Login successful"
+
+      respond_to do |format|
+        format.html do
+          session[:user_id] = user.id
+          redirect_to root_url, notice: "Login successful"
+        end
+        format.json { render json: { token: user.auth_token, user_id: user.id }, status: :ok }
+      end
     else
-      flash.now.alert = "Please try again!"
-      render :new, status: :unprocessable_entity
+      respond_to do |format|
+        format.html do
+          flash.now.alert = "Invalid email or password"
+          render :new, status: :unprocessable_entity
+        end
+        format.json { render json: { error: 'Invalid credentials' }, status: :unauthorized }
+      end
     end
   end
 
   def destroy
-    session[:user_id] = nil
-    redirect_to login_url, notice: "You're now signed out!"
+    if current_user && current_user.auth_token
+      current_user.regenerate_auth_token
+    end
+
+    respond_to do |format|
+      format.html do
+        session[:user_id] = nil
+        redirect_to login_url, notice: "You're now signed out!"
+      end
+      format.json { head :no_content }
+    end
   end
 end
