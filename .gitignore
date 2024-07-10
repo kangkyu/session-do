@@ -13,6 +13,8 @@
 /db/*.sqlite3-journal
 /db/test.sqlite3-shm
 /db/test.sqlite3-wal
+/db/development.sqlite3-shm
+/db/development.sqlite3-wal
 
 # Ignore all logfiles and tempfiles.
 /log/*

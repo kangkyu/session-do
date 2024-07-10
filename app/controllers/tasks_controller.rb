@@ -1,4 +1,4 @@
-class TasksController < BaseController
+class TasksController < ApplicationController
   before_action :require_login
   before_action :load_task, only: [
     :destroy, :clear, :edit, :update, :show
