@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_10_171726) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_10_204449) do
   create_table "tasks", force: :cascade do |t|
     t.string "name", limit: 255
     t.string "comment", limit: 255

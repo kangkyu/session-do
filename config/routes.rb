@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   get 'welcome/guide'
 
   namespace :api do
-    resources :tasks
+    resources :tasks do
+      post 'clear', on: :member
+    end
     resource :session, only: [:create, :destroy]
   end
 
