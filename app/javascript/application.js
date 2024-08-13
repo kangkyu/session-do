@@ -1,4 +1,14 @@
-// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
+import * as bootstrap from "bootstrap"
 import "@hotwired/turbo-rails"
-import 'bootstrap'
-import 'bootstrap-datepicker'
+
+// import Datepicker from 'vanillajs-datepicker/Datepicker';
+import { Datepicker } from "vanillajs-datepicker";
+
+document.addEventListener("DOMContentLoaded", function() {
+  const datepickerElements = document.querySelectorAll('.datepicker');
+  datepickerElements.forEach((element) => {
+    new Datepicker(element, {
+      buttonClass: 'btn',
+    });
+  });
+});

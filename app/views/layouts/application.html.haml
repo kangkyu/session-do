@@ -8,12 +8,14 @@
     = csrf_meta_tags
 
     = stylesheet_link_tag 'application', "data-turbo-track": "reload"
-    = javascript_importmap_tags
+    = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
 
   %body
     = render 'layouts/flash', flash: flash
 
-    .container
+    .container-fluid
       = render 'layouts/tab_bar'
       = yield
       = render 'layouts/page_bottom'
+
+    = yield :page_specific_js
