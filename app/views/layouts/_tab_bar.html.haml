@@ -8,7 +8,9 @@
         - elsif current_cont?('tasks', 'index')
           = link_to fa_icon_with_removed_text('plus', text: "Add Task", right: false), new_task_path, class: 'btn'
         - elsif current_cont?('tasks') || current_cont?('users', 'edit') || current_cont?('users', 'update')
-          = link_to icon('fa-regular', 'arrow-left', text: 'Tasks', right: false), tasks_path, class: 'btn'
+          = link_to tasks_path, class: 'btn' do
+            = icon('fa-regular', 'arrow-left')
+            Tasks
         - elsif current_cont?('users')
           = link_to "Log In", login_path, class: 'btn'
         - else

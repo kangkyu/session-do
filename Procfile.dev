@@ -1,4 +1,4 @@
 web: env RUBY_DEBUG_OPEN=true bin/rails server
-css: bin/rails dartsass:watch
 js: yarn build --watch
+css: bin/rails dartsass:watch
 css: yarn watch:css

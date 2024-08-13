@@ -3,16 +3,6 @@ $success: #5cb85c;
 $primary: #337ab7;
 $default-border: #333333;
 
-// Override Rail's default error calls with Bootstrap 3
-// Bootstrap 5 has is-invalid, instead of has-error
-// .field-check {
-//   @extend .is-valid
-// }
-
-// .field_with_errors .field-check {
-//   @extend .is-invalid
-// }
-
 body {
   font-family: 'Noto Sans', sans-serif
 }
@@ -35,11 +25,11 @@ body {
 // @media only screen and (max-width : 768px)
 
 /* Medium Devices, Desktops */
-@include media-breakpoint-down(lg) {
-  .text-remover {
-    display: none
-  }
-}
+// @include media-breakpoint-down(lg) {
+//   .text-remover {
+//     display: none
+//   }
+// }
 
 // /* Large Devices, Wide Screens */
 // @media only screen and (max-width : 1200px)

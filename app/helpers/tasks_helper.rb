@@ -26,11 +26,11 @@ module TasksHelper
   def progress_bar_tag(task)
     bar_color_class = task.time_passed_by < 0 ? "bg-success" : task.with_interval? ? "bg-warning" : "bg-primary"
     float_class = task.time_passed_by < 0 ? "flex-row-reverse" : ""
-    content_tag(:div, "", class: "progress #{float_class}", style: "height: 16px;") do
+    content_tag(:div, class: "progress #{float_class} position-relative", style: "height: 16px;") do
       content_tag(:div, "",
         "aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => task.bar_length,
         :role => "progressbar", :style => "width: #{task.bar_length}%;",
-        class: "progress-bar #{bar_color_class}")
+        class: "progress-bar #{bar_color_class}").concat progress_bar_text(task)
     end
   end
 
@@ -38,6 +38,8 @@ module TasksHelper
     last_word = task.time_passed_by < 0 ? " from now" : " ago"
     content_tag(
       :div, distance_of_time_in_words_to_now(task.done_at) + last_word,
-      class: "bar-text-color-white", style: "display: block; width: 100%;")
+      class: "text-center fw-bold position-absolute d-block w-100",
+      style: "z-index: 1000; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; color: white; font-size: 12px;"
+    )
   end
 end
