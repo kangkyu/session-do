@@ -1,20 +1,29 @@
-$transparent: rgb(0.0, 0.0, 0.0)
-$success: #5cb85c
-$primary: #337ab7
-$default-border: #333333
+$transparent: rgb(0.0, 0.0, 0.0);
+$success: #5cb85c;
+$primary: #337ab7;
+$default-border: #333333;
 
 // Override Rail's default error calls with Bootstrap 3
-.field_with_errors
-  @extend .has-error !optional
+// Bootstrap 5 has is-invalid, instead of has-error
+// .field-check {
+//   @extend .is-valid
+// }
 
-body
+// .field_with_errors .field-check {
+//   @extend .is-invalid
+// }
+
+body {
   font-family: 'Noto Sans', sans-serif
+}
 
-.btn.btn-default
+.btn.btn-default {
   border-color: $default-border
+}
 
-.btn.btn-link
+.btn.btn-link {
   text-decoration: none
+}
 
 // /* Custom, iPhone Retina */
 // @media only screen and (max-width : 320px)
@@ -26,9 +35,11 @@ body
 // @media only screen and (max-width : 768px)
 
 /* Medium Devices, Desktops */
-@media only screen and (max-width : 992px)
-  .text-remover
+@include media-breakpoint-down(lg) {
+  .text-remover {
     display: none
+  }
+}
 
 // /* Large Devices, Wide Screens */
 // @media only screen and (max-width : 1200px)

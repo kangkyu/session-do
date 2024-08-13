@@ -1,12 +1,9 @@
 .row
   .col-md-6.offset-md-3.col-sm-8.offset-sm-2.col-12
-    = form_for @user, class: 'form-inline' do |f|
-      .form-group.required
-        = f.text_field :username, placeholder: "username", class: 'form-control'
-      .form-group
-        = f.email_field :email, placeholder: "email", class: 'form-control'
-      .form-group
-        = f.password_field :password, placeholder: "password", class: 'form-control'
+    = form_for @user, class: 'form-group' do |f|
+      = f.text_field :username, placeholder: "username", class: 'form-control mb-4'
+      = f.email_field :email, placeholder: "email", class: 'form-control mb-4'
+      = f.password_field :password, placeholder: "password", class: 'form-control mb-4'
       .text-right
         - if @user.new_record?
           = f.submit 'Sign Up', class: 'btn btn-success'

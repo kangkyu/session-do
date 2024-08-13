@@ -1,10 +1,10 @@
-@use 'font-awesome' with ($fa-font-path: 'font-awesome');
+// @use 'font-awesome' with ($fa-font-path: 'font-awesome');
 
-@import "font-awesome";
-
-@import "custom";
 @import url("//fonts.googleapis.com/css?family=Noto+Sans:400,700,300");
 
-@import "tasks";
-
 @import 'vanillajs-datepicker/css/datepicker-bs5.css';
+
+@import "tasks";
+@import "custom";
+
+@import "font-awesome";

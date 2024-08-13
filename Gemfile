@@ -29,10 +29,6 @@ gem 'debug', group: [:development, :test]
 gem "haml-rails", "~> 2.0"
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
-gem "font-awesome-sass"
-
-# gem 'bootstrap-datepicker-rails'
-
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.18.0', require: false
 
@@ -60,8 +56,9 @@ gem 'rack-cors'
 
 # gem 'importmap-rails'
 gem "dartsass-rails", "~> 0.5.1"
-gem 'bootstrap', '~> 5.3.3'
+
 gem 'cssbundling-rails'
 gem 'jsbundling-rails'
 gem 'turbo-rails'
 
+gem "font-awesome-sass"

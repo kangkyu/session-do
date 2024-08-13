@@ -16,7 +16,11 @@ module TasksHelper
   def fa_icon_with_removed_text(icon_name, options={})
     text = options.delete(:text)
     right = options.delete(:right)
-    icon('fa-regular', icon_name, text: content_tag(:span, text, class: "text-remover"), right: right)
+    if right
+      icon('fa-regular', icon_name).safe_concat content_tag(:span, text, class: "text-remover")
+    else
+      content_tag(:span, text, class: "text-remover").safe_concat icon('fa-regular', icon_name)
+    end
   end
 
   def progress_bar_tag(task)
