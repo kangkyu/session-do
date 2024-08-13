@@ -5,10 +5,12 @@ import "@hotwired/turbo-rails"
 import { Datepicker } from "vanillajs-datepicker";
 
 document.addEventListener("DOMContentLoaded", function() {
-  const datepickerElements = document.querySelectorAll('.datepicker');
+  const datepickerElements = document.querySelectorAll('input.datepicker_calendar');
   datepickerElements.forEach((element) => {
-    new Datepicker(element, {
+    const datePicker = new Datepicker(element, {
+      format: 'yyyy-mm-dd',
       buttonClass: 'btn',
+      todayHighlight: true,
     });
   });
 });

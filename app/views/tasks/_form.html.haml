@@ -2,15 +2,15 @@
   .col-md-6.offset-md-3.col-sm-8.offset-sm-2.col-12
     = form_for @task, class: 'form-inline' do |f|
 
-      = f.text_field :done_at, placeholder: "task date", value: f.object.done_at.try(:strftime, "%Y-%m-%d"), class: 'form-control datepicker', data: {date: f.object.done_at.try(:strftime, "%Y-%m-%d")}
-      = f.text_field :name, placeholder: "name of task (required)", class: 'form-control required', autofocus: true
-      = f.text_field :comment, placeholder: "comment", class: 'form-control'
+      = f.text_field :done_at, placeholder: "task date", value: f.object.done_at.try(:strftime, "%Y-%m-%d"), class: 'form-control mb-4 datepicker_calendar', data: {date: f.object.done_at.try(:strftime, "%Y-%m-%d")}
+      = f.text_field :name, placeholder: "name of task (required)", class: 'form-control mb-4 required', autofocus: true
+      = f.text_field :comment, placeholder: "comment", class: 'form-control mb-4'
       .d-flex.justify-content-between
         .form-check
           = f.check_box :is_daily, class: 'form-check-input'
           = f.label :is_daily, class: 'form-check-label' do
             Let's do it everyday!
-        .input-group
+        .input-group.mb-4
           = f.text_field :later, placeholder: "next when?", class: 'form-control'
           %span.input-group-text
             days later
