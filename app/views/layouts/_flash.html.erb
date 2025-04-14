@@ -1,6 +1,6 @@
 <% if flash %>
   <% flash.keys.each do |key| %>
-    <div class="rounded-md p-4 mb-4 <%= tailwind_class_by_key(key) %> relative" role="alert" id="<%= key %>">
+    <div class="p-4 mb-4 <%= tailwind_class_by_key(key) %> relative" role="alert" id="<%= key %>">
       <button class="absolute top-0 right-0 p-4 text-gray-600 hover:text-gray-800" type="button" onclick="this.parentElement.remove();">
         <%= svg_icon('times') %>
         <span class="sr-only">Close</span>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ongoin.gs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <%= favicon_link_tag '/favicon.ico' %>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+  <body>
+    <%= render 'layouts/flash', flash: flash %>
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <%= render 'layouts/tab_bar' %>
+      <%= yield %>
+      <%= render 'layouts/page_bottom' %>
+    </div>
+  </body>
+</html>
