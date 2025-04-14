@@ -1,0 +1,16 @@
+<% if obj.errors.any? %>
+  <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4 relative rounded" role="alert" id="error-explanation">
+    <button class="absolute top-0 right-0 p-4 text-red-700 hover:text-red-900" type="button" onclick="this.parentElement.remove();">
+      <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+      <span class="sr-only">Close</span>
+    </button>
+    <p class="font-medium mb-2"><%= pluralize(obj.errors.count, "error") %> prohibited this user from being saved</p>
+    <ul class="list-disc pl-5">
+      <% obj.errors.full_messages.each do |msg| %>
+        <li class="mt-1"><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

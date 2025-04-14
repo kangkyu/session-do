@@ -1,0 +1,23 @@
+<div class="flex justify-center">
+  <div class="w-full sm:w-2/3 sm:mx-auto md:w-2/3 md:mx-auto">
+    <div class="text-center">
+      <%= render @task %>
+    </div>
+
+    <% if @task.visits.any? %>
+      <ul class="bg-white rounded-lg border border-gray-200 divide-y divide-gray-200">
+        <% @task.visits.each do |visit| %>
+          <li class="px-6 py-4 flex justify-between items-center">
+            <div>
+              <%= visit.created_at.in_time_zone.strftime("%A, %Y-%m-%d") %>
+              <%= visit.note %>
+            </div>
+            <%= button_to task_visit_path(@task, visit), method: :delete, class: 'bg-red-500 text-white text-xs font-semibold px-2.5 py-0.5 rounded' do %>
+              <%= svg_icon('times', class: 'inline-block h-3 w-3') %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</div>

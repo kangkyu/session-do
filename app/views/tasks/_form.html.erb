@@ -1,0 +1,46 @@
+<div class="flex justify-center">
+  <div class="w-full md:w-1/2 md:mx-auto sm:w-2/3 sm:mx-auto">
+    <%= form_for @task do |f| %>
+      <div class="mb-4">
+        <%= f.date_field :done_at, placeholder: "task date", value: f.object.done_at.try(:strftime, "%Y-%m-%d"),
+            class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+      </div>
+      <div class="mb-4">
+        <%= f.text_field :name, placeholder: "name of task (required)",
+            class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline',
+            autofocus: true %>
+      </div>
+      <div class="mb-4">
+        <%= f.text_field :comment, placeholder: "comment",
+            class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
+      </div>
+      <div class="flex justify-between items-center mb-4">
+        <div class="flex items-center">
+          <%= f.check_box :is_daily, class: 'h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded' %>
+          <%= f.label :is_daily, class: 'ml-2 block text-sm text-gray-700' do %>
+            Let's do it everyday!
+          <% end %>
+        </div>
+        <div class="flex items-center">
+          <%= f.text_field :later, placeholder: "next when?",
+              class: 'shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-32' %>
+          <span class="ml-2 text-sm text-gray-700">days later</span>
+        </div>
+      </div>
+      <div class="flex justify-end">
+        <%= f.submit (@task.new_record? ? 'Add' : 'Update'),
+            class: 'bg-gray-500 hover:bg-gray-700 text-white font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline text-sm' %>
+      </div>
+    <% end %>
+
+    <% if !@task.new_record? %>
+      <div class="mt-4 text-right">
+        <%= button_to @task, method: :delete,
+            class: 'bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline text-sm inline-flex items-center' do %>
+          <%= svg_icon('trash') %>
+          Delete
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
