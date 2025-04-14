@@ -314,7 +314,7 @@ DEPENDENCIES
   turbo-rails
 
 RUBY VERSION
-   ruby 3.2.8p263
+   ruby 3.3.7p123
 
 BUNDLED WITH
-   2.6.8
+   2.6.6
