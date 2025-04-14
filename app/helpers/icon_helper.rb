@@ -28,7 +28,7 @@ module IconHelper
   # Renders an SVG icon with optional text that can be hidden on smaller screens
   def svg_icon_with_text(icon_name, options = {})
     text = options.delete(:text)
-    right = options.fetch(:right, true)
+    right = options.fetch(:right, false)
     svg_class = options.fetch(:svg_class, "inline-block h-4 w-4 #{right ? 'mr-1' : 'ml-1'}")
     text_class = options.fetch(:text_class, "md:inline hidden")
 
