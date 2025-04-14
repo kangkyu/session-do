@@ -1,8 +1,8 @@
 module TasksHelper
 
   def task_name(task)
-    task_name_class = task.with_interval? ? "text-green-500 font-bold p-0" : "text-blue-500 font-bold p-0"
-    content_tag(:span, truncate(task.name), class: task_name_class, id: 'task-name', title: task.name)
+    task_name_class = task.with_interval? ? "text-green-500" : "text-blue-500"
+    content_tag(:span, truncate(task.name), class: "font-bold p-0 #{task_name_class}", id: 'task-name', title: task.name)
   end
 
   def task_date(task)
@@ -37,10 +37,8 @@ module TasksHelper
 
   def progress_bar_text(task)
     last_word = task.time_passed_by < 0 ? " from now" : " ago"
-    content_tag(
-      :div,
-      distance_of_time_in_words_to_now(task.done_at) + last_word,
-      class: "text-white text-xs absolute inset-0 flex items-center justify-center text-shadow-sm"
+    content_tag(:div, distance_of_time_in_words_to_now(task.done_at) + last_word,
+      class: "text-white text-xs absolute inset-0 flex items-center justify-center font-bold text-outline"
     )
   end
 end

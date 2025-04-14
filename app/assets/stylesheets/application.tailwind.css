@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .text-outline {
+    text-shadow:
+      -1px -1px 0 rgba(0, 0, 0, 0.7),
+      1px -1px 0 rgba(0, 0, 0, 0.7),
+      -1px 1px 0 rgba(0, 0, 0, 0.7),
+      1px 1px 0 rgba(0, 0, 0, 0.7);
+  }
+}
+
 /*
 
 @layer components {
