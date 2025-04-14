@@ -1,0 +1,25 @@
+<hr class="my-4">
+<div class="flex justify-center">
+  <div class="w-full sm:w-1/3 sm:mx-auto">
+    <div class="text-center">
+      <p>
+        <% if current_cont?('sessions') %>
+          <%= link_to "Sign Up", register_path, class: 'py-2 px-4 rounded hover:bg-gray-100' %>
+        <% elsif current_cont?('tasks', 'index') %>
+          <%= link_to new_task_path, class: 'py-2 px-4 rounded hover:bg-gray-100' do %>
+            <i class="fa fa-plus mr-2"></i>Add Task
+          <% end %>
+        <% elsif current_cont?('tasks') || current_cont?('users', 'edit') || current_cont?('users', 'update') %>
+          <%= link_to tasks_path, class: 'py-2 px-4 rounded hover:bg-gray-100' do %>
+            <i class="fa fa-arrow-left mr-2"></i>Tasks
+          <% end %>
+        <% elsif current_cont?('users') %>
+          <%= link_to "Log In", login_path, class: 'py-2 px-4 rounded hover:bg-gray-100' %>
+        <% else %>
+          <%= "Any link or button?" %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+</div>
+<hr class="my-4">

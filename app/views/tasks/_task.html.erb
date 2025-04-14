@@ -1,0 +1,41 @@
+<%= turbo_frame_tag dom_id(task) do %>
+  <div class="mb-4">
+    <div class="flex flex-wrap items-center mb-2">
+      <div class="w-7/12 sm:w-2/3 md:w-7/12">
+        <div class="text-left">
+          <% if current_cont?('tasks', 'show') %>
+            <%= task_name(task) %>
+          <% else %>
+            <%= link_to task_name(task), task, data: { turbo_frame: "_top" } %>
+          <% end %>
+          <small>
+            <code class="bg-gray-100 px-1 py-0.5 rounded text-xs">on <%= task_date(task) %></code>
+          </small>
+          <span class="ml-1">
+            <%= task.comment %>
+          </span>
+        </div>
+      </div>
+      <div class="w-5/12 sm:w-1/3 md:w-5/12">
+        <div class="text-right flex justify-end items-center space-x-2">
+          <%= link_to edit_task_path(task), data: { turbo_frame: "_top" }, class: 'py-1 px-2 border border-yellow-400 text-yellow-600 hover:bg-yellow-50 rounded text-sm inline-flex items-center' do %>
+            <svg class="h-4 w-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+            </svg>
+            <span class="md:inline hidden">Edit</span>
+          <% end %>
+          <%= button_to clear_task_path(task), class: 'py-1 px-2 border border-blue-400 text-blue-600 hover:bg-blue-50 rounded text-sm inline-flex items-center' do %>
+            <svg class="h-4 w-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="md:inline hidden">Done</span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="relative">
+      <%= progress_bar_tag(task) %>
+      <%= progress_bar_text(task) %>
+    </div>
+  </div>
+<% end %>

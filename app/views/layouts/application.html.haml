@@ -7,13 +7,14 @@
     = favicon_link_tag '/favicon.ico'
     = csrf_meta_tags
 
-    = stylesheet_link_tag 'application', "data-turbo-track": "reload"
+    = stylesheet_link_tag "tailwind", "data-turbo-track": "reload"
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
 
   %body
     = render 'layouts/flash', flash: flash
 
-    .container
+    .container.mx-auto.px-4.sm:px-6.lg:px-8
       = render 'layouts/tab_bar'
       = yield
       = render 'layouts/page_bottom'

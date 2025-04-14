@@ -1,0 +1,147 @@
+<h2 class="text-center">Tasks in touch</h2>
+
+<div class="grid grid-cols-3">
+  <div class="col-span-1"></div>
+  <div class="col-span-1">
+    <p class="text-center">
+      <a class="inline-flex items-center py-2 px-4 text-blue-600 hover:underline">
+        <span class="md:inline hidden">Add Task</span>
+        <%= svg_icon('plus', class: 'h-4 w-4') %>
+      </a>
+    </p>
+  </div>
+  <div class="col-span-1"></div>
+</div>
+
+<!-- Task 1 -->
+<div class="mb-6">
+  <div class="flex justify-between items-center mb-2">
+    <div class="text-left">
+      <a>
+        <span id="task-name" class="text-blue-500 font-bold">walk</span>
+      </a>
+      <small>
+        <code class="bg-gray-100 px-1 py-0.5 rounded text-xs">on Feb 25</code>
+      </small>
+      <span class="ml-1"></span>
+    </div>
+    <div class="text-right">
+      <a class="py-1 px-2 border border-gray-300 rounded inline-flex items-center mr-1 hover:bg-gray-100">
+        <span class="md:inline hidden">Visit</span>
+        <%= svg_icon('check', class: 'h-4 w-4') %>
+      </a>
+      <a class="py-1 px-2 border border-red-500 text-red-500 rounded inline-flex items-center hover:bg-red-50">
+        <span class="md:inline hidden">Delete</span>
+        <%= svg_icon('trash', class: 'h-4 w-4') %>
+      </a>
+    </div>
+  </div>
+  <div class="relative">
+    <div class="w-full bg-gray-200 rounded-md h-4 flex flex-row-reverse">
+      <div class="bg-yellow-500 rounded-md" style="width: 83%;" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="83"></div>
+    </div>
+    <div class="absolute inset-0 flex items-center justify-center">
+      <span class="text-white text-xs text-shadow-sm">7 days later</span>
+    </div>
+  </div>
+</div>
+
+<!-- Task 2 -->
+<div class="mb-6">
+  <div class="flex justify-between items-center mb-2">
+    <div class="text-left">
+      <a>
+        <span id="task-name" class="text-blue-500 font-bold">daily task</span>
+      </a>
+      <small>
+        <code class="bg-gray-100 px-1 py-0.5 rounded text-xs">on Feb 15</code>
+      </small>
+      <span class="ml-1"></span>
+    </div>
+    <div class="text-right">
+      <a class="py-1 px-2 border border-gray-300 rounded inline-flex items-center mr-1 hover:bg-gray-100">
+        <span class="md:inline hidden">Visit</span>
+        <%= svg_icon('check', class: 'h-4 w-4') %>
+      </a>
+      <a class="py-1 px-2 border border-red-500 text-red-500 rounded inline-flex items-center hover:bg-red-50">
+        <span class="md:inline hidden">Delete</span>
+        <%= svg_icon('trash', class: 'h-4 w-4') %>
+      </a>
+    </div>
+  </div>
+  <div class="relative">
+    <div class="w-full bg-gray-200 rounded-md h-4">
+      <div class="bg-blue-500 rounded-md text-white text-xs" style="width: 35%;" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="35">
+        <span class="px-2">3 days ago</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Task 3 -->
+<div class="mb-6">
+  <div class="flex justify-between items-center mb-2">
+    <div class="text-left">
+      <a>
+        <span id="task-name" class="text-blue-500 font-bold">another task!</span>
+      </a>
+      <small>
+        <code class="bg-gray-100 px-1 py-0.5 rounded text-xs">on Feb 12</code>
+      </small>
+      <span class="ml-1"></span>
+    </div>
+    <div class="text-right">
+      <a class="py-1 px-2 border border-gray-300 rounded inline-flex items-center mr-1 hover:bg-gray-100">
+        <span class="md:inline hidden">Visit</span>
+        <%= svg_icon('check', class: 'h-4 w-4') %>
+      </a>
+      <a class="py-1 px-2 border border-red-500 text-red-500 rounded inline-flex items-center hover:bg-red-50">
+        <span class="md:inline hidden">Delete</span>
+        <%= svg_icon('trash', class: 'h-4 w-4') %>
+      </a>
+    </div>
+  </div>
+  <div class="relative">
+    <div class="w-full bg-gray-200 rounded-md h-4">
+      <div class="bg-blue-500 rounded-md text-white text-xs" style="width: 79%;" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="79">
+        <span class="px-2">7 days ago</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Task 4 -->
+<div class="mb-6">
+  <div class="flex justify-between items-center mb-2">
+    <div class="text-left">
+      <a>
+        <span id="task-name" class="text-blue-500 font-bold">drink water</span>
+      </a>
+      <small>
+        <code class="bg-gray-100 px-1 py-0.5 rounded text-xs">on Jan 23</code>
+      </small>
+      <span class="ml-1"></span>
+    </div>
+    <div class="text-right">
+      <a class="py-1 px-2 border border-gray-300 rounded inline-flex items-center mr-1 hover:bg-gray-100">
+        <span class="md:inline hidden">Visit</span>
+        <%= svg_icon('check', class: 'h-4 w-4') %>
+      </a>
+      <a class="py-1 px-2 border border-red-500 text-red-500 rounded inline-flex items-center hover:bg-red-50">
+        <span class="md:inline hidden">Delete</span>
+        <%= svg_icon('trash', class: 'h-4 w-4') %>
+      </a>
+    </div>
+  </div>
+  <div class="relative">
+    <div class="w-full bg-gray-200 rounded-md h-4 overflow-hidden">
+      <div class="bg-blue-500 rounded-md text-white text-xs" style="width: 100%;" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="308">
+        <span class="px-2">26 days ago</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p class="text-center mt-8">
+  <%= link_to 'back to Sign Up', register_path, class: 'text-blue-500 font-bold py-2 px-4 rounded hover:underline' %>
+</p>

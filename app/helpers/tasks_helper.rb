@@ -1,7 +1,7 @@
 module TasksHelper
 
   def task_name(task)
-    task_name_class = task.with_interval? ? "task-daily" : "task-non-daily"
+    task_name_class = task.with_interval? ? "text-green-500 font-bold p-0" : "text-blue-500 font-bold p-0"
     content_tag(:span, truncate(task.name), class: task_name_class, id: 'task-name', title: task.name)
   end
 
@@ -13,27 +13,34 @@ module TasksHelper
     end
   end
 
-  def fa_icon_with_removed_text(icon_name, options={})
-    text = options.delete(:text)
-    right = options.delete(:right)
-    fa_icon(icon_name, text: content_tag(:span, text, class: "text-remover"), right: right)
-  end
-
   def progress_bar_tag(task)
-    bar_color_class = task.time_passed_by < 0 ? "bg-success" : task.with_interval? ? "bg-warning" : "bg-primary"
-    float_class = task.time_passed_by < 0 ? "flex-row-reverse" : ""
-    content_tag(:div, "", class: "progress #{float_class}", style: "height: 16px;") do
+    bar_color_class = if task.time_passed_by < 0
+                        "bg-green-500" # Previously bg-success
+                      elsif task.with_interval?
+                        "bg-amber-400" # Previously bg-warning
+                      else
+                        "bg-blue-500" # Previously bg-primary
+                      end
+
+    direction_class = task.time_passed_by < 0 ? "flex-row-reverse" : ""
+
+    content_tag(:div, "", class: "w-full bg-gray-200 rounded h-4 flex #{direction_class}") do
       content_tag(:div, "",
-        "aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => task.bar_length,
-        :role => "progressbar", :style => "width: #{task.bar_length}%;",
-        class: "progress-bar #{bar_color_class}")
+        "aria-valuemax" => "100",
+        "aria-valuemin" => "0",
+        "aria-valuenow" => task.bar_length,
+        role: "progressbar",
+        style: "width: #{task.bar_length}%;",
+        class: "#{bar_color_class} rounded")
     end
   end
 
   def progress_bar_text(task)
     last_word = task.time_passed_by < 0 ? " from now" : " ago"
     content_tag(
-      :div, distance_of_time_in_words_to_now(task.done_at) + last_word,
-      class: "bar-text-color-white", style: "display: block; width: 100%;")
+      :div,
+      distance_of_time_in_words_to_now(task.done_at) + last_word,
+      class: "text-white text-xs absolute inset-0 flex items-center justify-center text-shadow-sm"
+    )
   end
 end
