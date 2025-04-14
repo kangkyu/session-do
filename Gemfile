@@ -11,8 +11,6 @@ gem 'sassc-rails'
 # # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # # gem 'therubyracer',  platforms: :ruby
 
-# # Use jquery as the JavaScript library
-# gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -29,7 +27,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'haml'
 gem 'haml-rails'
-# gem 'bootstrap', '~> 4.6.1'
+
 gem 'sprockets-rails'
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
@@ -39,8 +37,6 @@ gem "stimulus-rails"
 # https://docs.fontawesome.com/web/use-with/ruby-on-rails
 # gem 'font-awesome-sass', '~> 6.5.1'
 # gem 'font-awesome-rails', '~> 4.7.0.8'
-
-# gem 'bootstrap-datepicker-rails'
 
 gem 'turbo-rails'
 gem 'importmap-rails'
@@ -66,7 +62,6 @@ end
 
 group :development do
   gem 'sqlite3', ">= 1.4"
-  # gem 'spring'
 end
 
 group :production do
