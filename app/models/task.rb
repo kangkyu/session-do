@@ -14,6 +14,12 @@ class Task < ActiveRecord::Base
   scope :sorted_nested, ->{ order('is_daily desc, done_at desc') }
   scope :reverse_of_id, ->{ order('id desc') }
 
+  before_validation :ensure_comment_is_string
+
+  def ensure_comment_is_string
+    self.comment = comment.to_s
+  end
+
   def time_passed_by
     (Time.current - done_at).to_i/3600
   end
