@@ -3,7 +3,7 @@ class Task < ActiveRecord::Base
   has_many :visits, dependent: :destroy
 
   validates :name, presence: true
-  validates :comment, length: { maximum: 255 }, allow_blank: true
+  validates :comment, length: { maximum: 255, minimum: 0 }, allow_blank: true
   validates :later, numericality: { greater_than: 0 }, allow_nil: true
   validates :done_at, presence: true, on: :update
 

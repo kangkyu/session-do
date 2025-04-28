@@ -14,7 +14,7 @@ module Api
       @task = current_user.tasks.new(task_params)
       @task.start_done_at
       if @task.save
-        render json: @task, status: :created
+        render json: @task.as_json, status: :created
       else
         render json: @task.errors, status: :unprocessable_entity
       end
