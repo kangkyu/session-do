@@ -26,7 +26,7 @@ module SessionsToDo
     config.time_zone = 'Pacific Time (US & Canada)'
 
     config.generators do |g|
-      g.test_framework false
+      g.test_framework nil
     end
   end
 end

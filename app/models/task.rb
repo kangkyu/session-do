@@ -3,7 +3,7 @@ class Task < ActiveRecord::Base
   has_many :visits, dependent: :destroy
 
   validates :name, presence: true
-  validates :comment, length: { maximum: 255 }, allow_blank: true
+  validates :comment, length: { maximum: 255, minimum: 0 }, allow_blank: true
   validates :later, numericality: { greater_than: 0 }, allow_nil: true
   validates :done_at, presence: true, on: :update
 
@@ -13,6 +13,12 @@ class Task < ActiveRecord::Base
 
   scope :sorted_nested, ->{ order('is_daily desc, done_at desc') }
   scope :reverse_of_id, ->{ order('id desc') }
+
+  before_validation :ensure_comment_is_string
+
+  def ensure_comment_is_string
+    self.comment = comment.to_s
+  end
 
   def time_passed_by
     (Time.current - done_at).to_i/3600

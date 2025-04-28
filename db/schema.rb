@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_14_020233) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_28_021732) do
   create_table "tasks", force: :cascade do |t|
     t.string "name", limit: 255
     t.string "comment", limit: 255
@@ -18,7 +18,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_14_020233) do
     t.datetime "created_at", precision: nil
     t.datetime "updated_at", precision: nil
     t.integer "user_id"
-    t.boolean "is_daily"
+    t.boolean "is_daily", default: false
     t.integer "later"
   end
 
