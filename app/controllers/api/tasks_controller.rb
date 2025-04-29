@@ -6,8 +6,8 @@ module Api
     end
 
     def clear
-      task = current_user.tasks.find_by(id: params[:id])
-      task.visit!
+      @task = current_user.tasks.find_by(id: params[:id])
+      @task.visit!
     end
 
     def create
@@ -15,6 +15,16 @@ module Api
       @task.start_done_at
       if @task.save
         render :show, status: :created
+      else
+        render json: @task.errors, status: :unprocessable_entity
+      end
+    end
+
+    def update
+      @task = current_user.tasks.find_by(id: params[:id])
+
+      if @task.update(task_params)
+        render :show, status: :ok
       else
         render json: @task.errors, status: :unprocessable_entity
       end
