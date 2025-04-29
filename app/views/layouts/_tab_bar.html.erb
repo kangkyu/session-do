@@ -4,7 +4,7 @@
     <div class="text-center">
       <p>
         <% if current_cont?('sessions') %>
-          <%= link_to "Sign Up", register_path, class: 'py-2 px-4 rounded hover:bg-gray-100' %>
+          <%= link_to "Sign Up", register_path, class: 'text-xs py-2 px-4 rounded hover:bg-gray-100' %>
         <% elsif current_cont?('tasks', 'index') %>
           <%= link_to new_task_path, class: 'py-2 px-4 rounded hover:bg-gray-100' do %>
             <%= svg_icon_with_text "plus", text: "Add Task" %>
@@ -14,7 +14,7 @@
             <%= svg_icon_with_text "arrow-left", text: "Tasks" %>
           <% end %>
         <% elsif current_cont?('users') %>
-          <%= link_to "Log In", login_path, class: 'py-2 px-4 rounded hover:bg-gray-100' %>
+          <%= link_to "Log In", login_path, class: 'text-xs py-2 px-4 rounded hover:bg-gray-100' %>
         <% else %>
           <%= "Any link or button?" %>
         <% end %>
