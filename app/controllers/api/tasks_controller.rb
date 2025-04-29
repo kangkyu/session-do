@@ -30,6 +30,11 @@ module Api
       end
     end
 
+    def show
+      @task = current_user.tasks.find_by(id: params[:id])
+      render :show, statu: :ok
+    end
+
     # TODO: add more actions
 
     private
