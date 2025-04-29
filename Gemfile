@@ -4,8 +4,7 @@ ruby '3.3.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 8.0.1'
-# Use SCSS for stylesheets
-gem 'sassc-rails'
+
 # # Use Uglifier as compressor for JavaScript assets
 # gem 'uglifier', '>= 1.3.0'
 # # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -25,7 +24,8 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'sprockets-rails'
+# Remove sprockets, sprockets-rails, and sass-rails from the Gemfile and add propshaft
+gem "propshaft"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
