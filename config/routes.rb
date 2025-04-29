@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       post 'clear', on: :member
     end
     resource :session, only: [:create, :destroy]
+    resources :users, only: [:create, :destroy]
   end
 
   resources :tasks do
