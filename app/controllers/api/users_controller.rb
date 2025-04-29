@@ -1,6 +1,7 @@
 module Api
   class UsersController < Api::BaseController
     skip_before_action :authenticate_token, only: [:create]
+    wrap_parameters :user, include: [:username, :password, :email]
 
     def create
       @user = User.new(user_params)
@@ -8,7 +9,7 @@ module Api
       if @user.save
         render json: { user_id: @user.id }, status: :created
       else
-        render json: @user.errors, status: :unprocessable_entity
+        render json: { error: @user.errors.full_messages.to_sentence }, status: :unprocessable_entity
       end
     end
 
