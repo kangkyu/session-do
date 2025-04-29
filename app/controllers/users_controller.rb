@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_login, only: [:edit, :update]
+  before_action :require_logout, only: [:new, :create]
 
   def edit
     @user = User.find(params[:id])
