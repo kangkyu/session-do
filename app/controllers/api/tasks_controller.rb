@@ -35,7 +35,10 @@ module Api
       render :show, statu: :ok
     end
 
-    # TODO: add more actions
+    def destroy
+      @task = current_user.tasks.find_by(id: params[:id])
+      @task.destroy
+    end
 
     private
 
