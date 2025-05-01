@@ -13,6 +13,11 @@ module Api
       end
     end
 
+    def destroy
+      @user = User.find_by(id: params[:id])
+      @user.destroy if @user.id == current_user.id
+    end
+
     private
 
     def user_params
