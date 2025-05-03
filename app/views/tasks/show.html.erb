@@ -4,9 +4,9 @@
       <%= render @task %>
     </div>
 
-    <% if @task.visits.any? %>
+    <% if @visits.any? %>
       <ul class="bg-white rounded-lg border border-gray-200 divide-y divide-gray-200">
-        <% @task.visits.each do |visit| %>
+        <% @visits.each do |visit| %>
           <li class="px-6 py-4 flex justify-between items-center">
             <div>
               <%= visit.created_at.in_time_zone.strftime("%A, %Y-%m-%d") %>

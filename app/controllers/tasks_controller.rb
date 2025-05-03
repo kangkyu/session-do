@@ -34,6 +34,7 @@ class TasksController < ApplicationController
   end
 
   def show
+    @visits = Visit.where(task: @task).order(id: :desc)
   end
 
   def edit
