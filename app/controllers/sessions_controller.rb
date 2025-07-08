@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:email])
+    user = User.find_by(email: email_param)
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to root_url, notice: "Login successful"
@@ -19,5 +19,11 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     redirect_to login_url, notice: "You're now signed out!"
+  end
+
+  private
+
+  def email_param
+    params[:email]&.strip&.downcase
   end
 end

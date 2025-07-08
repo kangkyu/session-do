@@ -3,7 +3,7 @@ module Api
     skip_before_action :authenticate_token, only: [:create]
 
     def create
-      user = User.find_by(email: params[:email])
+      user = User.find_by(email: email_param)
       if user&.authenticate(params[:password])
         user.regenerate_auth_token if user.auth_token.nil?
         render json: { token: user.auth_token, user_id: user.id }, status: :ok
@@ -19,6 +19,12 @@ module Api
       else
         render json: { error: 'Unauthorized' }, status: :unauthorized
       end
+    end
+
+    private
+
+    def email_param
+      params[:email]&.strip&.downcase
     end
   end
 end
