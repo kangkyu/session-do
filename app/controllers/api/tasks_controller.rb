@@ -8,6 +8,7 @@ module Api
     def clear
       @task = current_user.tasks.find_by(id: params[:id])
       @task.visit!
+      render :show, status: :ok
     end
 
     def create
@@ -38,6 +39,7 @@ module Api
     def destroy
       @task = current_user.tasks.find_by(id: params[:id])
       @task.destroy
+      head :no_content
     end
 
     private
