@@ -8,7 +8,7 @@ module Api
     def clear
       @task = current_user.tasks.find_by(id: params[:id])
       @task.visit!
-      render :show, status: :ok
+      head :no_content
     end
 
     def create
