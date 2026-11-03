@@ -1,7 +1,7 @@
 module Api
   class UsersController < Api::BaseController
-    skip_before_action :authenticate_token, only: [:create]
-    wrap_parameters :user, include: [:username, :password, :email]
+    skip_before_action :authenticate_token, only: [ :create ]
+    wrap_parameters :user, include: [ :username, :password, :email ]
 
     def create
       @user = User.new(user_params)

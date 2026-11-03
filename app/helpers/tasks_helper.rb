@@ -1,8 +1,7 @@
 module TasksHelper
-
   def task_name(task)
     task_name_class = task.with_interval? ? "text-green-500" : "text-blue-500"
-    content_tag(:span, truncate(task.name), class: "font-bold p-0 #{task_name_class}", id: 'task-name', title: task.name)
+    content_tag(:span, truncate(task.name), class: "font-bold p-0 #{task_name_class}", id: "task-name", title: task.name)
   end
 
   def task_date(task)
@@ -16,11 +15,11 @@ module TasksHelper
   def progress_bar_tag(task)
     bar_color_class = if task.time_passed_by < 0
                         "bg-green-500" # Previously bg-success
-                      elsif task.with_interval?
+    elsif task.with_interval?
                         "bg-amber-400" # Previously bg-warning
-                      else
+    else
                         "bg-blue-500" # Previously bg-primary
-                      end
+    end
 
     direction_class = task.time_passed_by < 0 ? "flex-row-reverse" : ""
 

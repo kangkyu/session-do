@@ -1,5 +1,4 @@
 class VisitsController < ApplicationController
-
   def destroy
     @visit = Visit.find(params[:id])
     @visit.destroy
@@ -9,6 +8,6 @@ class VisitsController < ApplicationController
 private
 
   def visit_params
-    params.require(:visit).permit(:note, :task_id).merge(:user_id => session[:user_id])
+    params.require(:visit).permit(:note, :task_id).merge(user_id: session[:user_id])
   end
 end
