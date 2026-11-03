@@ -1,9 +1,9 @@
 source "https://rubygems.org"
 
-ruby "3.3.7"
+ruby "3.4.10"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem "rails", "~> 8.0.1"
+gem "rails", "~> 8.1.0"
 
 # # Use Uglifier as compressor for JavaScript assets
 # gem 'uglifier', '>= 1.3.0'
@@ -50,8 +50,6 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
-  # rubocop pulls in json; json 3 breaks ActiveSupport 8.0 JSON encoding (unknown keyword: quirks_mode)
-  gem "json", "< 3"
 
   gem "rspec-rails"
 end
