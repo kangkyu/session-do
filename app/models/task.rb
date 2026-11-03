@@ -7,12 +7,12 @@ class Task < ActiveRecord::Base
   validates :later, numericality: { greater_than: 0 }, allow_nil: true
   validates :done_at, presence: true, on: :update
 
-  scope :daily, ->{ where(is_daily: true) }
-  scope :put_off, ->{ where(is_daily: false)}
-  scope :sorted_by_done_at, ->{ order('done_at desc') }
+  scope :daily, -> { where(is_daily: true) }
+  scope :put_off, -> { where(is_daily: false) }
+  scope :sorted_by_done_at, -> { order("done_at desc") }
 
-  scope :sorted_nested, ->{ order('is_daily desc, done_at desc') }
-  scope :reverse_of_id, ->{ order('id desc') }
+  scope :sorted_nested, -> { order("is_daily desc, done_at desc") }
+  scope :reverse_of_id, -> { order("id desc") }
 
   before_validation :ensure_comment_is_string
 

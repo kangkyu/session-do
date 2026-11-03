@@ -1,6 +1,6 @@
 module Api
   class SessionsController < Api::BaseController
-    skip_before_action :authenticate_token, only: [:create]
+    skip_before_action :authenticate_token, only: [ :create ]
 
     def create
       user = User.find_by(email: email_param)
@@ -8,7 +8,7 @@ module Api
         user.regenerate_auth_token if user.auth_token.nil?
         render json: { token: user.auth_token, user_id: user.id }, status: :ok
       else
-        render json: { error: 'Invalid credentials' }, status: :unauthorized
+        render json: { error: "Invalid credentials" }, status: :unauthorized
       end
     end
 
@@ -17,7 +17,7 @@ module Api
         current_user.regenerate_auth_token
         head :no_content
       else
-        render json: { error: 'Unauthorized' }, status: :unauthorized
+        render json: { error: "Unauthorized" }, status: :unauthorized
       end
     end
 

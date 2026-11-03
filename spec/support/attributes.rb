@@ -1,4 +1,4 @@
-def user_attributes(overrides={})
+def user_attributes(overrides = {})
   {
     username: "jimmy",
     email: "jimmy@example.com",
@@ -6,7 +6,7 @@ def user_attributes(overrides={})
   }.merge(overrides)
 end
 
-def task_attributes(overrides={})
+def task_attributes(overrides = {})
   user = User.create!(user_attributes)
   {
     name: "family dinner",

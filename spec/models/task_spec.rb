@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe Task do
-
   describe '.time_passed_by' do
     it "returns negative time in the future" do
       task = Task.new(task_attributes)
@@ -116,5 +115,4 @@ describe Task do
       expect(task).not_to be_valid
     end
   end
-
 end

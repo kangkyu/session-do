@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe User, :type => :model do
-
+RSpec.describe User, type: :model do
   it "saves itself" do
     user = User.new(user_attributes)
     expect(user.save).to eq(true)
@@ -55,7 +54,7 @@ RSpec.describe User, :type => :model do
     end
 
     it "is invalid with an email address does not look like an email" do
-      not_emails = %w(email @ email@)
+      not_emails = %w[email @ email@]
       not_emails.each do |not_email|
         user = User.new(user_attributes(email: not_email))
         user.valid?
@@ -63,6 +62,4 @@ RSpec.describe User, :type => :model do
       end
     end
   end
-
 end
-

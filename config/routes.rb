@@ -1,28 +1,28 @@
 Rails.application.routes.draw do
-  get 'welcome/guide'
+  get "welcome/guide"
 
   namespace :api do
     resources :tasks do
-      post 'clear', on: :member
+      post "clear", on: :member
     end
-    resource :session, only: [:create, :destroy]
-    resources :users, only: [:create]
+    resource :session, only: [ :create, :destroy ]
+    resources :users, only: [ :create ]
     delete "users/remove", to: "users#remove_current_user"
   end
 
   resources :tasks do
     member do
-      post 'clear'
+      post "clear"
     end
     resources :visits, only: :destroy
   end
-  root to: 'tasks#index'
+  root to: "tasks#index"
 
-  resources :users, except: [:destroy, :show, :index]
-  get 'register', to: 'users#new'
+  resources :users, except: [ :destroy, :show, :index ]
+  get "register", to: "users#new"
 
-  resource :session, except: [:show, :edit, :update]
-  get 'login', to: 'sessions#new'
+  resource :session, except: [ :show, :edit, :update ]
+  get "login", to: "sessions#new"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
