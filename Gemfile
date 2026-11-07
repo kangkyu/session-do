@@ -60,14 +60,7 @@ group :test do
   gem "selenium-webdriver"
 end
 
-group :development do
-  gem "sqlite3", ">= 1.4"
-end
-
-group :production do
-  gem "pg"
-  # gem 'rails_12factor'
-end
+gem "pg"
 
 gem "puma", ">= 5.0"
 gem "redis", ">= 4.0.1", "~> 5.0"
